@@ -1,8 +1,5 @@
-// Build detail page logic
-
 async function loadBuildDetail() {
   const root = document.getElementById('buildDetailRoot');
-
   const [buildRes, analysisRes] = await Promise.allSettled([
     fetch(`/api/builds/${BUILD_ID}`).then(r => r.json()),
     fetch(`/api/analysis/${BUILD_ID}`).then(r => r.ok ? r.json() : null),
@@ -17,7 +14,6 @@ async function loadBuildDetail() {
   }
 
   root.innerHTML = `
-    <!-- Header -->
     <div class="d-flex align-items-center gap-3 mb-4 flex-wrap">
       <a href="/" class="btn btn-sm btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Back</a>
       <h4 class="mb-0">${build.job_type} — Build #${build.build_number}</h4>
@@ -28,25 +24,23 @@ async function loadBuildDetail() {
     </div>
 
     <div class="row g-3">
-      <!-- Build metadata -->
       <div class="col-md-5">
         <div class="card border-0 shadow-sm mb-3">
           <div class="card-header bg-transparent fw-semibold">Build Info</div>
           <div class="card-body">
-            ${metaRow('Filename', `<code>${build.filename}</code>`)}
-            ${metaRow('Triggered By', build.triggered_by || '—')}
-            ${metaRow('Upstream Job', build.upstream_job || '—')}
-            ${metaRow('Git Branch', build.git_branch || '—')}
-            ${metaRow('Git Commit', build.git_commit ? `<code class="small">${build.git_commit.slice(0,10)}</code>` : '—')}
+            ${metaRow('Filename',       `<code class="small">${build.filename}</code>`)}
+            ${metaRow('Triggered By',   build.triggered_by || '—')}
+            ${metaRow('Upstream Job',   build.upstream_job || '—')}
+            ${metaRow('Git Branch',     build.git_branch || '—')}
+            ${metaRow('Git Commit',     build.git_commit ? `<code class="small">${build.git_commit.slice(0,10)}</code>` : '—')}
             ${metaRow('Commit Message', build.git_commit_message ? `<em class="small">${esc(build.git_commit_message)}</em>` : '—')}
-            ${metaRow('Cucumber Tags', build.cucumber_tags ? `<code>${build.cucumber_tags}</code>` : '—')}
-            ${metaRow('Finished At', build.finished_at || '—')}
-            ${metaRow('Duration', fmtDuration(build.duration_seconds))}
-            ${metaRow('Log Lines', build.log_line_count)}
+            ${metaRow('Cucumber Tags',  build.cucumber_tags ? `<code>${build.cucumber_tags}</code>` : '—')}
+            ${metaRow('Finished At',    build.finished_at || '—')}
+            ${metaRow('Duration',       fmtDuration(build.duration_seconds))}
+            ${metaRow('Log Lines',      build.log_line_count)}
           </div>
         </div>
 
-        <!-- Test results -->
         <div class="card border-0 shadow-sm mb-3">
           <div class="card-header bg-transparent fw-semibold">Test Results</div>
           <div class="card-body">
@@ -59,7 +53,6 @@ async function loadBuildDetail() {
           </div>
         </div>
 
-        <!-- Extracted errors -->
         ${build.errors?.length ? `
         <div class="card border-0 shadow-sm">
           <div class="card-header bg-transparent fw-semibold">Extracted Errors</div>
@@ -71,47 +64,54 @@ async function loadBuildDetail() {
                   <span class="small">${esc(e.message)}</span>
                 </div>
                 ${e.detail ? `<div class="evidence-item">${esc(e.detail)}</div>` : ''}
-              </div>
-            `).join('')}
+              </div>`).join('')}
           </div>
         </div>` : ''}
       </div>
 
-      <!-- Analysis panel -->
       <div class="col-md-7">
         <div id="analysisPanel">
           ${analysis ? renderAnalysis(analysis) : renderNoAnalysis()}
         </div>
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
 function renderAnalysis(a) {
   const recs  = a.recommendations || [];
-  const evid  = a.evidence || [];
-  const cats  = a.all_categories || [];
+  const probs = a.probabilities   || {};
   const sev   = a.severity || 'MEDIUM';
+  const conf  = a.confidence_score ? `${(a.confidence_score * 100).toFixed(1)}%` : '—';
+
+  const probBars = Object.entries(probs)
+    .sort(([,a],[,b]) => b - a)
+    .slice(0, 5)
+    .map(([label, p]) => `
+      <div class="mb-1">
+        <div class="d-flex justify-content-between small mb-1">
+          <span>${label.replace(/_/g, ' ')}</span>
+          <span>${(p * 100).toFixed(1)}%</span>
+        </div>
+        <div class="progress" style="height:6px">
+          <div class="progress-bar" style="width:${(p*100).toFixed(1)}%"></div>
+        </div>
+      </div>`).join('');
+
   return `
     <div class="card border-0 shadow-sm analysis-card ${sev} mb-3">
-      <div class="card-header bg-transparent d-flex align-items-center gap-2">
-        <span class="fw-semibold">Root Cause Analysis</span>
+      <div class="card-header bg-transparent d-flex align-items-center gap-2 flex-wrap">
+        <span class="fw-semibold">ML Prediction</span>
         ${severityBadge(sev)}
-        <span class="badge bg-light text-dark border ms-auto">Confidence: ${a.confidence || '—'}</span>
-        ${a.recurring_risk === 'YES' ? '<span class="badge bg-danger">Recurring risk</span>' : ''}
+        <span class="badge bg-light text-dark border">Confidence: ${conf}</span>
+        <span class="badge bg-secondary">${a.model_used || 'rule-based'}</span>
       </div>
       <div class="card-body">
-        <h6 class="text-danger mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Root Cause</h6>
-        <p class="mb-3">${esc(a.root_cause || '—')}</p>
+        <h6 class="text-danger mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Predicted Category</h6>
+        <p class="mb-3 fw-semibold">${esc(a.label || a.predicted_category)}</p>
 
-        <h6 class="mb-1"><i class="bi bi-file-text me-1"></i>Explanation</h6>
-        <p class="text-muted small mb-3">${esc(a.explanation || '—')}</p>
-
-        ${evid.length ? `
-        <h6 class="mb-1"><i class="bi bi-code-slash me-1"></i>Evidence</h6>
-        <div class="mb-3">
-          ${evid.map(e => `<div class="evidence-item">${esc(e)}</div>`).join('')}
-        </div>` : ''}
+        ${probBars ? `
+        <h6 class="mb-2"><i class="bi bi-bar-chart me-1"></i>Class Probabilities</h6>
+        <div class="mb-3">${probBars}</div>` : ''}
 
         ${recs.length ? `
         <h6 class="mb-1"><i class="bi bi-tools me-1"></i>Recommendations</h6>
@@ -121,15 +121,9 @@ function renderAnalysis(a) {
               <span class="badge bg-primary me-2">${i + 1}</span>${esc(r)}
             </div>`).join('')}
         </div>` : ''}
-
-        ${cats.length > 1 ? `
-        <div class="mt-3 d-flex gap-2 flex-wrap">
-          <small class="text-muted">All error categories:</small>
-          ${cats.map(c => `<span class="badge bg-secondary">${c}</span>`).join('')}
-        </div>` : ''}
       </div>
       <div class="card-footer text-muted small">
-        Analysed at ${a.analysed_at || '—'} · ${a.agent_used ? 'Claude AI' : 'Rule-based'}
+        Analysed at ${a.analysed_at || '—'}
       </div>
     </div>`;
 }
@@ -140,7 +134,7 @@ function renderNoAnalysis() {
       <i class="bi bi-cpu fs-1 text-muted mb-3"></i>
       <p class="text-muted">No analysis yet for this build.</p>
       <button class="btn btn-primary" onclick="triggerAnalysis()">
-        <i class="bi bi-play me-1"></i>Run Root Cause Analysis
+        <i class="bi bi-play me-1"></i>Run ML Analysis
       </button>
     </div>`;
 }
@@ -168,7 +162,7 @@ function metaRow(label, value) {
 
 function statCell(label, value, color) {
   return `<div class="col-3">
-    <div class="border rounded p-2">
+    <div class="border rounded p-2 text-center">
       <div class="fs-4 fw-bold text-${color}">${value ?? 0}</div>
       <div class="small text-muted">${label}</div>
     </div>
@@ -176,8 +170,7 @@ function statCell(label, value, color) {
 }
 
 function esc(str) {
-  if (!str) return '';
-  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
 loadBuildDetail();

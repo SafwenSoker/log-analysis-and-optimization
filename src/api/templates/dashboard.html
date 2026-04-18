@@ -2,65 +2,98 @@
 {% block title %}Dashboard — Jenkins Log Analyser{% endblock %}
 
 {% block content %}
+<!-- Model status banner -->
+<div id="modelBanner" class="alert alert-warning d-flex align-items-center gap-3 mb-3 py-2" role="alert">
+  <i class="bi bi-cpu fs-5"></i>
+  <span id="modelBannerText">Checking model status…</span>
+  <button class="btn btn-sm btn-warning ms-auto" id="trainBtn">
+    <i class="bi bi-play-fill me-1"></i>Train Model
+  </button>
+</div>
+
 <!-- Stats cards -->
-<div class="row g-3 mb-4" id="statsRow">
-  <div class="col-6 col-md-3">
+<div class="row g-3 mb-4">
+  <div class="col-6 col-md-2">
     <div class="card text-center border-0 shadow-sm">
-      <div class="card-body">
-        <div class="fs-1 fw-bold text-primary" id="statTotal">—</div>
+      <div class="card-body py-3">
+        <div class="fs-2 fw-bold text-primary" id="statTotal">—</div>
         <div class="text-muted small">Total Builds</div>
       </div>
     </div>
   </div>
-  <div class="col-6 col-md-3">
+  <div class="col-6 col-md-2">
     <div class="card text-center border-0 shadow-sm">
-      <div class="card-body">
-        <div class="fs-1 fw-bold text-success" id="statSuccess">—</div>
+      <div class="card-body py-3">
+        <div class="fs-2 fw-bold text-success" id="statSuccess">—</div>
         <div class="text-muted small">Success</div>
       </div>
     </div>
   </div>
-  <div class="col-6 col-md-3">
+  <div class="col-6 col-md-2">
     <div class="card text-center border-0 shadow-sm">
-      <div class="card-body">
-        <div class="fs-1 fw-bold text-danger" id="statFailure">—</div>
+      <div class="card-body py-3">
+        <div class="fs-2 fw-bold text-danger" id="statFailure">—</div>
         <div class="text-muted small">Failed</div>
       </div>
     </div>
   </div>
-  <div class="col-6 col-md-3">
+  <div class="col-6 col-md-2">
     <div class="card text-center border-0 shadow-sm">
-      <div class="card-body">
-        <div class="fs-1 fw-bold text-warning" id="statUnstable">—</div>
-        <div class="text-muted small">Unstable / Aborted</div>
+      <div class="card-body py-3">
+        <div class="fs-2 fw-bold text-warning" id="statUnstable">—</div>
+        <div class="text-muted small">Unstable/Aborted</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-2">
+    <div class="card text-center border-0 shadow-sm">
+      <div class="card-body py-3">
+        <div class="fs-2 fw-bold text-info" id="statFlaky">—</div>
+        <div class="text-muted small">Flaky Scenarios</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-2">
+    <div class="card text-center border-0 shadow-sm">
+      <div class="card-body py-3">
+        <div class="fs-2 fw-bold text-secondary" id="statAccuracy">—</div>
+        <div class="text-muted small">Model Accuracy</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Charts row -->
+<!-- Charts -->
 <div class="row g-3 mb-4">
-  <div class="col-md-4">
+  <div class="col-md-3">
     <div class="card border-0 shadow-sm h-100">
-      <div class="card-header bg-transparent fw-semibold">Build Status Distribution</div>
+      <div class="card-header bg-transparent fw-semibold small">Build Status</div>
       <div class="card-body d-flex align-items-center justify-content-center">
-        <canvas id="statusChart" style="max-height:220px"></canvas>
+        <canvas id="statusChart" style="max-height:200px"></canvas>
       </div>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <div class="card border-0 shadow-sm h-100">
-      <div class="card-header bg-transparent fw-semibold">Builds by Job Type</div>
+      <div class="card-header bg-transparent fw-semibold small">By Job Type</div>
       <div class="card-body d-flex align-items-center justify-content-center">
-        <canvas id="jobChart" style="max-height:220px"></canvas>
+        <canvas id="jobChart" style="max-height:200px"></canvas>
       </div>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <div class="card border-0 shadow-sm h-100">
-      <div class="card-header bg-transparent fw-semibold">Top Error Categories</div>
+      <div class="card-header bg-transparent fw-semibold small">Top Error Categories</div>
       <div class="card-body d-flex align-items-center justify-content-center">
-        <canvas id="errorChart" style="max-height:220px"></canvas>
+        <canvas id="errorChart" style="max-height:200px"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-header bg-transparent fw-semibold small">Model CV Scores</div>
+      <div class="card-body d-flex align-items-center justify-content-center">
+        <canvas id="modelChart" style="max-height:200px"></canvas>
       </div>
     </div>
   </div>
@@ -84,27 +117,25 @@
       <option value="UNSTABLE">Unstable</option>
       <option value="ABORTED">Aborted</option>
     </select>
-    <label class="ms-auto d-flex align-items-center gap-2 small">
-      Upload log:
-      <input type="file" id="uploadInput" accept=".txt,.log" class="form-control form-control-sm" style="width:220px">
-    </label>
+    <div class="ms-auto d-flex gap-2 align-items-center">
+      <label class="d-flex align-items-center gap-2 small mb-0">
+        Upload log:
+        <input type="file" id="uploadInput" accept=".txt,.log" class="form-control form-control-sm" style="width:200px">
+      </label>
+      <button class="btn btn-sm btn-outline-secondary" id="analyseAllBtn">
+        <i class="bi bi-cpu me-1"></i>Analyse All
+      </button>
+    </div>
   </div>
   <div class="card-body p-0">
     <div class="table-responsive">
       <table class="table table-hover mb-0 align-middle">
         <thead class="table-light">
           <tr>
-            <th>ID</th>
-            <th>Job Type</th>
-            <th>Build #</th>
-            <th>Status</th>
-            <th>Cucumber Tags</th>
-            <th>Tests Run</th>
-            <th>Failures</th>
-            <th>Duration</th>
-            <th>Finished At</th>
-            <th>Analysed</th>
-            <th></th>
+            <th>ID</th><th>Job Type</th><th>Build #</th><th>Status</th>
+            <th>ML Prediction</th><th>Confidence</th>
+            <th>Tests Run</th><th>Failures</th><th>Duration</th>
+            <th>Analysed</th><th></th>
           </tr>
         </thead>
         <tbody id="buildsBody">

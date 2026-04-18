@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}Flaky Tests — Jenkins Log Analyser{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center gap-3 mb-4">
+  <h4 class="mb-0"><i class="bi bi-shuffle me-2 text-warning"></i>Flaky Test Analysis</h4>
+  <button class="btn btn-sm btn-warning ms-auto" id="recomputeBtn">
+    <i class="bi bi-arrow-clockwise me-1"></i>Recompute
+  </button>
+</div>
+
+<!-- Summary cards -->
+<div class="row g-3 mb-4" id="flakySummary">
+  <div class="col-md-3">
+    <div class="card border-0 shadow-sm text-center">
+      <div class="card-body py-3">
+        <div class="fs-2 fw-bold text-warning" id="flakyCount">—</div>
+        <div class="text-muted small">Flaky Scenarios</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card border-0 shadow-sm text-center">
+      <div class="card-body py-3">
+        <div class="fs-2 fw-bold text-danger" id="failingCount">—</div>
+        <div class="text-muted small">Consistently Failing</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card border-0 shadow-sm text-center">
+      <div class="card-body py-3">
+        <div class="fs-2 fw-bold text-success" id="stableCount">—</div>
+        <div class="text-muted small">Stable</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card border-0 shadow-sm text-center">
+      <div class="card-body py-3">
+        <div class="fs-2 fw-bold text-info" id="flakyRate">—</div>
+        <div class="text-muted small">Flaky Rate</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3">
+  <!-- Flaky scenarios -->
+  <div class="col-md-7">
+    <div class="card border-0 shadow-sm">
+      <div class="card-header bg-transparent fw-semibold d-flex align-items-center gap-2">
+        <span class="badge bg-warning text-dark">FLAKY</span> Flaky Scenarios
+        <span class="badge bg-secondary ms-auto" id="flakyTableCount">0</span>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover mb-0 align-middle small">
+            <thead class="table-light">
+              <tr>
+                <th>Scenario</th><th>Job Type</th><th>Runs</th>
+                <th>Fail Rate</th><th>Alternation</th><th>History</th>
+              </tr>
+            </thead>
+            <tbody id="flakyBody">
+              <tr><td colspan="6" class="text-center py-3 text-muted">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Consistently failing -->
+  <div class="col-md-5">
+    <div class="card border-0 shadow-sm">
+      <div class="card-header bg-transparent fw-semibold d-flex align-items-center gap-2">
+        <span class="badge bg-danger">FAILING</span> Consistently Failing
+        <span class="badge bg-secondary ms-auto" id="failingTableCount">0</span>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover mb-0 align-middle small">
+            <thead class="table-light">
+              <tr><th>Scenario</th><th>Job Type</th><th>Runs</th><th>Fail Rate</th></tr>
+            </thead>
+            <tbody id="failingBody">
+              <tr><td colspan="4" class="text-center py-3 text-muted">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/flaky.js"></script>
+{% endblock %}
