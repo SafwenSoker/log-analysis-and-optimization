@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Build #{{ build_id }} — Jenkins Log Analyser{% endblock %}
+
+{% block content %}
+<div id="buildDetailRoot">
+  <div class="text-center py-5 text-muted">Loading build details…</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const BUILD_ID = {{ build_id }};
+</script>
+<script src="/static/js/build_detail.js"></script>
+{% endblock %}

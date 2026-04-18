@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — Jenkins Log Analyser{% endblock %}
+
+{% block content %}
+<!-- Stats cards -->
+<div class="row g-3 mb-4" id="statsRow">
+  <div class="col-6 col-md-3">
+    <div class="card text-center border-0 shadow-sm">
+      <div class="card-body">
+        <div class="fs-1 fw-bold text-primary" id="statTotal">—</div>
+        <div class="text-muted small">Total Builds</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card text-center border-0 shadow-sm">
+      <div class="card-body">
+        <div class="fs-1 fw-bold text-success" id="statSuccess">—</div>
+        <div class="text-muted small">Success</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card text-center border-0 shadow-sm">
+      <div class="card-body">
+        <div class="fs-1 fw-bold text-danger" id="statFailure">—</div>
+        <div class="text-muted small">Failed</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card text-center border-0 shadow-sm">
+      <div class="card-body">
+        <div class="fs-1 fw-bold text-warning" id="statUnstable">—</div>
+        <div class="text-muted small">Unstable / Aborted</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Charts row -->
+<div class="row g-3 mb-4">
+  <div class="col-md-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-header bg-transparent fw-semibold">Build Status Distribution</div>
+      <div class="card-body d-flex align-items-center justify-content-center">
+        <canvas id="statusChart" style="max-height:220px"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-header bg-transparent fw-semibold">Builds by Job Type</div>
+      <div class="card-body d-flex align-items-center justify-content-center">
+        <canvas id="jobChart" style="max-height:220px"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-header bg-transparent fw-semibold">Top Error Categories</div>
+      <div class="card-body d-flex align-items-center justify-content-center">
+        <canvas id="errorChart" style="max-height:220px"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Filters + Build table -->
+<div class="card border-0 shadow-sm">
+  <div class="card-header bg-transparent d-flex align-items-center gap-3 flex-wrap">
+    <span class="fw-semibold">Builds</span>
+    <select class="form-select form-select-sm w-auto" id="filterJobType">
+      <option value="">All job types</option>
+      <option value="FCTU_Train1">FCTU Train 1</option>
+      <option value="FCTU_Train2">FCTU Train 2</option>
+      <option value="PROD_Serializer">PROD Serializer</option>
+      <option value="PROD_ATIJ">PROD ATIJ</option>
+    </select>
+    <select class="form-select form-select-sm w-auto" id="filterStatus">
+      <option value="">All statuses</option>
+      <option value="SUCCESS">Success</option>
+      <option value="FAILURE">Failure</option>
+      <option value="UNSTABLE">Unstable</option>
+      <option value="ABORTED">Aborted</option>
+    </select>
+    <label class="ms-auto d-flex align-items-center gap-2 small">
+      Upload log:
+      <input type="file" id="uploadInput" accept=".txt,.log" class="form-control form-control-sm" style="width:220px">
+    </label>
+  </div>
+  <div class="card-body p-0">
+    <div class="table-responsive">
+      <table class="table table-hover mb-0 align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>ID</th>
+            <th>Job Type</th>
+            <th>Build #</th>
+            <th>Status</th>
+            <th>Cucumber Tags</th>
+            <th>Tests Run</th>
+            <th>Failures</th>
+            <th>Duration</th>
+            <th>Finished At</th>
+            <th>Analysed</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="buildsBody">
+          <tr><td colspan="11" class="text-center py-4 text-muted">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-footer d-flex justify-content-between align-items-center">
+    <small class="text-muted" id="paginationInfo"></small>
+    <div class="d-flex gap-2">
+      <button class="btn btn-sm btn-outline-secondary" id="prevPage" disabled>‹ Prev</button>
+      <button class="btn btn-sm btn-outline-secondary" id="nextPage" disabled>Next ›</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/dashboard.js"></script>
+{% endblock %}

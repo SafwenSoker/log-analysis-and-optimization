@@ -1,0 +1,67 @@
+body { background: #f4f6f9; font-size: 0.9rem; }
+
+.navbar { border-bottom: 2px solid #0d6efd22; }
+
+.card { border-radius: 12px; }
+.card-header { border-radius: 12px 12px 0 0 !important; font-size: 0.85rem; }
+
+/* Status badges */
+.badge-SUCCESS  { background:#198754; color:#fff; }
+.badge-FAILURE  { background:#dc3545; color:#fff; }
+.badge-UNSTABLE { background:#fd7e14; color:#fff; }
+.badge-ABORTED  { background:#6c757d; color:#fff; }
+.badge-UNKNOWN  { background:#adb5bd; color:#fff; }
+
+/* Severity badges */
+.badge-CRITICAL { background:#dc3545; color:#fff; }
+.badge-HIGH     { background:#fd7e14; color:#fff; }
+.badge-MEDIUM   { background:#ffc107; color:#212529; }
+.badge-LOW      { background:#0dcaf0; color:#212529; }
+.badge-INFO     { background:#198754; color:#fff; }
+
+.log-viewer {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.78rem;
+  border-radius: 8px;
+  padding: 1rem;
+  max-height: 500px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.log-viewer .log-error   { color: #f48771; }
+.log-viewer .log-warn    { color: #dcdcaa; }
+.log-viewer .log-success { color: #4ec9b0; }
+.log-viewer .log-info    { color: #9cdcfe; }
+
+.analysis-card { border-left: 4px solid #0d6efd; }
+.analysis-card.CRITICAL { border-left-color: #dc3545; }
+.analysis-card.HIGH     { border-left-color: #fd7e14; }
+.analysis-card.MEDIUM   { border-left-color: #ffc107; }
+.analysis-card.LOW      { border-left-color: #0dcaf0; }
+.analysis-card.INFO     { border-left-color: #198754; }
+
+.recommendation-item {
+  padding: 0.4rem 0.6rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  margin-bottom: 0.4rem;
+  border-left: 3px solid #0d6efd;
+}
+
+.evidence-item {
+  font-family: 'Consolas', monospace;
+  font-size: 0.8rem;
+  background: #f8f9fa;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  border-left: 3px solid #6c757d;
+  margin-bottom: 0.3rem;
+  word-break: break-all;
+}
+
+table tbody tr { cursor: pointer; }
+table tbody tr:hover { background: #e9f0ff; }
