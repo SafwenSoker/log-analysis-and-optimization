@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-ANTHROPIC_API_KEY: str = os.getenv("ANTHROPIC_API_KEY", "")
 JENKINS_URL: str       = os.getenv("JENKINS_URL", "")
 JENKINS_USER: str      = os.getenv("JENKINS_USER", "admin")
 JENKINS_TOKEN: str     = os.getenv("JENKINS_TOKEN", "")
