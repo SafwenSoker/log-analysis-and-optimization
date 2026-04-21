@@ -126,7 +126,7 @@ def analyse_flakiness(logs_dir: str | Path = "data/logs") -> dict[str, ScenarioH
     and return a dict of scenario_name → ScenarioHistory.
     """
     logs_dir = Path(logs_dir)
-    log_files = sorted(logs_dir.glob("*.log.txt")) + sorted(logs_dir.glob("*.txt"))
+    log_files = sorted(logs_dir.glob("*.log")) + sorted(logs_dir.glob("*.log.txt")) + sorted(logs_dir.glob("*.txt"))
 
     # Only Cucumber jobs produce scenario-level results
     histories: dict[str, ScenarioHistory] = {}

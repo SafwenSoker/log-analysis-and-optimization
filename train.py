@@ -21,7 +21,7 @@ if __name__ == "__main__":
     print("\n=== Training complete ===")
     print(f"Best model  : {metrics['best_model']}")
     print(f"Samples     : {metrics['n_samples']}")
-    print(f"Classes     : {metrics['n_classes']} → {metrics['classes']}")
+    print(f"Classes     : {metrics['n_classes']} -> {metrics['classes']}")
     print("\nCross-validation results:")
     for name, cv in metrics["cv_results"].items():
         print(f"  {name:<22} acc={cv['accuracy_mean']:.3f}±{cv['accuracy_std']:.3f}  "

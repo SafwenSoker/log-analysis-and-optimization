@@ -17,7 +17,6 @@ from datetime import datetime, timezone
 
 import joblib
 import numpy as np
-import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
@@ -90,7 +89,7 @@ def _load_dataset(logs_dir: Path) -> tuple[list, list[str], list[str]]:
       filenames  — list of log filenames (for reporting)
     """
     rows, labels, filenames = [], [], []
-    log_files = sorted(logs_dir.glob("*.log.txt")) + sorted(logs_dir.glob("*.txt"))
+    log_files = sorted(logs_dir.glob("*.log")) + sorted(logs_dir.glob("*.log.txt")) + sorted(logs_dir.glob("*.txt"))
 
     for path in log_files:
         try:
