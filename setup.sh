@@ -4,17 +4,14 @@
 set -e
 
 echo "==> Creating virtual environment..."
-uv venv .venv
+python -m venv .venv
 
 echo "==> Installing dependencies..."
-uv pip install -r requirements.txt
-
-echo "==> Copying .env.example to .env..."
-[ -f .env ] || cp .env.example .env
+source .venv/Scripts/activate
+pip install -r requirements.txt
 
 echo ""
-echo "Done! Next steps:"
-echo "  1. Edit .env and add your ANTHROPIC_API_KEY"
-echo "  2. Put Jenkins log files in data/logs/"
-echo "  3. Run: uvicorn main:app --reload"
-echo "  4. Open http://localhost:8000 and click 'Ingest Logs'"
+echo "Done! Start the server with:"
+echo "  bash run.sh"
+echo "Then ingest logs with:"
+echo "  bash ingest.sh"
