@@ -44,7 +44,7 @@ async function loadStats() {
       labels: statuses.map(([k]) => k),
       datasets: [{ data: statuses.map(([, v]) => v), backgroundColor: statuses.map(([k]) => STATUS_COLORS[k] || '#adb5bd') }],
     },
-    options: { plugins: { legend: { position: 'bottom', labels: { font: { size: 10 } } } }, cutout: '60%' },
+    options: { maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }, cutout: '60%' },
   });
 
   // Job type bar
@@ -55,7 +55,11 @@ async function loadStats() {
       labels: jobs.map(([k]) => k),
       datasets: [{ data: jobs.map(([, v]) => v), backgroundColor: '#0d6efd88', borderColor: '#0d6efd', borderWidth: 1 }],
     },
-    options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { precision: 0 } } } },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true, ticks: { precision: 0, font: { size: 9 } } }, x: { ticks: { font: { size: 9 } } } },
+    },
   });
 
   // Error categories horizontal bar
@@ -67,9 +71,10 @@ async function loadStats() {
       datasets: [{ data: cats.map(([, v]) => v), backgroundColor: '#dc354566', borderColor: '#dc3545', borderWidth: 1 }],
     },
     options: {
+      maintainAspectRatio: false,
       indexAxis: 'y',
       plugins: { legend: { display: false } },
-      scales: { x: { beginAtZero: true, ticks: { precision: 0 } } },
+      scales: { x: { beginAtZero: true, ticks: { precision: 0, font: { size: 9 } } }, y: { ticks: { font: { size: 9 } } } },
     },
   });
 
@@ -94,8 +99,9 @@ async function loadModelChart() {
         ],
       },
       options: {
-        plugins: { legend: { position: 'bottom', labels: { font: { size: 10 } } } },
-        scales: { y: { beginAtZero: true, max: 100 } },
+        maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom', labels: { font: { size: 9 } } } },
+        scales: { y: { beginAtZero: true, max: 100, ticks: { font: { size: 9 } } }, x: { ticks: { font: { size: 9 } } } },
       },
     });
   } catch (e) { /* no model yet */ }

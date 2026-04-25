@@ -64,36 +64,35 @@
 </div>
 
 <!-- Charts -->
-<div class="row g-3 mb-4">
-  <div class="col-md-3">
-    <div class="card border-0 shadow-sm h-100">
+<div class="row g-3 mb-4" style="min-height:360px">
+  <!-- Build Status — half the screen -->
+  <div class="col-md-6 d-flex">
+    <div class="card border-0 shadow-sm flex-fill">
       <div class="card-header bg-transparent fw-semibold small">Build Status</div>
       <div class="card-body d-flex align-items-center justify-content-center">
-        <canvas id="statusChart" style="max-height:200px"></canvas>
+        <canvas id="statusChart" style="max-height:300px"></canvas>
       </div>
     </div>
   </div>
-  <div class="col-md-3">
-    <div class="card border-0 shadow-sm h-100">
-      <div class="card-header bg-transparent fw-semibold small">By Job Type</div>
-      <div class="card-body d-flex align-items-center justify-content-center">
-        <canvas id="jobChart" style="max-height:200px"></canvas>
+
+  <!-- Right column: 3 charts stacked, same total height as Build Status -->
+  <div class="col-md-6 d-flex flex-column gap-2">
+    <div class="card border-0 shadow-sm flex-fill">
+      <div class="card-header bg-transparent fw-semibold small py-1">By Job Type</div>
+      <div class="card-body p-2 d-flex align-items-center justify-content-center">
+        <canvas id="jobChart"></canvas>
       </div>
     </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card border-0 shadow-sm h-100">
-      <div class="card-header bg-transparent fw-semibold small">Top Error Categories</div>
-      <div class="card-body d-flex align-items-center justify-content-center">
-        <canvas id="errorChart" style="max-height:200px"></canvas>
+    <div class="card border-0 shadow-sm flex-fill">
+      <div class="card-header bg-transparent fw-semibold small py-1">Top Error Categories</div>
+      <div class="card-body p-2 d-flex align-items-center justify-content-center">
+        <canvas id="errorChart"></canvas>
       </div>
     </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card border-0 shadow-sm h-100">
-      <div class="card-header bg-transparent fw-semibold small">Model CV Scores</div>
-      <div class="card-body d-flex align-items-center justify-content-center">
-        <canvas id="modelChart" style="max-height:200px"></canvas>
+    <div class="card border-0 shadow-sm flex-fill">
+      <div class="card-header bg-transparent fw-semibold small py-1">Model CV Scores</div>
+      <div class="card-body p-2 d-flex align-items-center justify-content-center">
+        <canvas id="modelChart"></canvas>
       </div>
     </div>
   </div>
