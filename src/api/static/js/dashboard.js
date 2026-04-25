@@ -44,7 +44,7 @@ async function loadStats() {
       labels: statuses.map(([k]) => k),
       datasets: [{ data: statuses.map(([, v]) => v), backgroundColor: statuses.map(([k]) => STATUS_COLORS[k] || '#adb5bd') }],
     },
-    options: { maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }, cutout: '60%' },
+    options: { maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { font: { size: 11 }, boxWidth: 12, padding: 8 } } }, cutout: '55%' },
   });
 
   // Job type bar
@@ -100,7 +100,7 @@ async function loadModelChart() {
       },
       options: {
         maintainAspectRatio: false,
-        plugins: { legend: { position: 'bottom', labels: { font: { size: 9 } } } },
+        plugins: { legend: { position: 'top', align: 'start', labels: { font: { size: 9 }, boxWidth: 10, padding: 6 } } },
         scales: { y: { beginAtZero: true, max: 100, ticks: { font: { size: 9 } } }, x: { ticks: { font: { size: 9 } } } },
       },
     });
