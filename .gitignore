@@ -2,7 +2,6 @@
 data/logs/
 data/*.db
 data/*.sqlite3
-data/*.joblib
 data/*.log
 *.log.txt
 
