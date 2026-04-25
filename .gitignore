@@ -1,5 +1,8 @@
-# Logs — never commit raw log files
-data/
+# Raw log files and generated artifacts — never commit
+data/logs/
+data/*.db
+data/*.sqlite3
+data/*.joblib
 *.log
 *.log.txt
 

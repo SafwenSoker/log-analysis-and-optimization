@@ -1,10 +1,11 @@
 from pathlib import Path
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
+from src.api.auth import require_api_key
 from src.api.routes import builds, analysis, jenkins, upload, model
 from src.storage.database import init_db
 
@@ -19,11 +20,12 @@ app = FastAPI(
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
 
-app.include_router(builds.router)
-app.include_router(analysis.router)
-app.include_router(jenkins.router)
-app.include_router(upload.router)
-app.include_router(model.router)
+_auth = Depends(require_api_key)
+app.include_router(builds.router,   dependencies=[_auth])
+app.include_router(analysis.router, dependencies=[_auth])
+app.include_router(jenkins.router,  dependencies=[_auth])
+app.include_router(upload.router,   dependencies=[_auth])
+app.include_router(model.router,    dependencies=[_auth])
 
 
 @app.on_event("startup")

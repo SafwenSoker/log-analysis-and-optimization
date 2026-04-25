@@ -85,11 +85,42 @@ def extract_structured(build: ParsedBuild) -> np.ndarray:
     return vec
 
 
+_NOISE_PATTERNS = [
+    (re.compile(r"\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}[\.,\d+Z]*"), "TIMESTAMP"),
+    (re.compile(r"https?://\S+"), "URL"),
+    (re.compile(r"(?:/[\w.\-]+){2,}"), "PATH"),
+    (re.compile(r"\b[a-f0-9]{7,40}\b"), "GIT_HASH"),
+    (re.compile(r"\b\d+(\.\d+){1,3}\b"), "VERSION"),
+    (re.compile(r"\bBuild(ing|er)?\s+#?\d+\b", re.I), "BUILD_ID"),
+    (re.compile(r"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b"), "IP_ADDR"),
+    (re.compile(r"\s{2,}"), " "),
+]
+
+_NOISE_LINE_RE = re.compile(
+    r"^\s*\[INFO\]\s+(Download(ing|ed)|Building|Compiling|Scanning|"
+    r"Total time|Finished at|Final Memory|---)",
+    re.I,
+)
+
+
+def _clean_log_text(text: str) -> str:
+    """Remove noise from log text before TF-IDF vectorisation."""
+    cleaned = []
+    for line in text.splitlines():
+        if _NOISE_LINE_RE.match(line):
+            continue
+        for pattern, replacement in _NOISE_PATTERNS:
+            line = pattern.sub(replacement, line)
+        cleaned.append(line.strip())
+    return " ".join(filter(None, cleaned))
+
+
 def extract_text_section(build: ParsedBuild, tail_lines: int = 80) -> str:
     """
     Returns the most diagnostic text portion of the log:
       - All [ERROR] and <<< FAILURE lines
       - The last N lines (where final status + stack traces appear)
+    Noise (timestamps, URLs, paths, hashes) is removed before returning.
     """
     lines = build.raw_log.splitlines()
 
@@ -100,7 +131,6 @@ def extract_text_section(build: ParsedBuild, tail_lines: int = 80) -> str:
 
     tail = lines[-tail_lines:]
     combined = error_lines + tail
-    # Deduplicate while preserving order
     seen = set()
     deduped = []
     for l in combined:
@@ -109,7 +139,8 @@ def extract_text_section(build: ParsedBuild, tail_lines: int = 80) -> str:
             seen.add(key)
             deduped.append(l)
 
-    return " ".join(deduped)
+    raw_section = " ".join(deduped)
+    return _clean_log_text(raw_section)
 
 
 def build_to_row(build: ParsedBuild) -> tuple[np.ndarray, str]:

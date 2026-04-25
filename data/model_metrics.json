@@ -1,0 +1,271 @@
+{
+  "trained_at": "2026-04-25T14:30:51.197206+00:00",
+  "n_samples": 319,
+  "n_train_test": 294,
+  "n_validation": 25,
+  "n_classes": 8,
+  "classes": [
+    "BUILD_ABORTED",
+    "COMPILATION_ERROR",
+    "CONNECTION_REFUSED",
+    "NO_TESTS_EXECUTED",
+    "SELENIUM_DRIVER_ERROR",
+    "SELENIUM_UI_FAILURE",
+    "SERIALIZER_STEP_FAILURE",
+    "SUCCESS"
+  ],
+  "best_model": "LogisticRegression",
+  "cv_results": {
+    "LogisticRegression": {
+      "accuracy_mean": 0.9872340425531915,
+      "accuracy_std": 0.010423360607588006,
+      "f1_weighted_mean": 0.9872881871509188,
+      "f1_weighted_std": 0.010387713198914671,
+      "f1_macro_mean": 0.9911713395584363,
+      "f1_macro_std": 0.007302680975989567
+    },
+    "RandomForest": {
+      "accuracy_mean": 0.9744680851063829,
+      "accuracy_std": 0.02084672121517597,
+      "f1_weighted_mean": 0.9724514594230772,
+      "f1_weighted_std": 0.0247227654570667,
+      "f1_macro_mean": 0.9374280240504149,
+      "f1_macro_std": 0.10323634064304939
+    },
+    "LinearSVC": {
+      "accuracy_mean": 0.9872340425531915,
+      "accuracy_std": 0.010423360607588006,
+      "f1_weighted_mean": 0.9872881871509188,
+      "f1_weighted_std": 0.010387713198914671,
+      "f1_macro_mean": 0.9911713395584363,
+      "f1_macro_std": 0.007302680975989567
+    },
+    "XGBoost": {
+      "accuracy_mean": 0.9702127659574469,
+      "accuracy_std": 0.028860978651596886,
+      "f1_weighted_mean": 0.966327370745797,
+      "f1_weighted_std": 0.03650243734832073,
+      "f1_macro_mean": 0.9289315205539115,
+      "f1_macro_std": 0.12020616029318336
+    }
+  },
+  "test_report": {
+    "BUILD_ABORTED": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 2.0
+    },
+    "COMPILATION_ERROR": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1.0
+    },
+    "CONNECTION_REFUSED": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 2.0
+    },
+    "NO_TESTS_EXECUTED": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 3.0
+    },
+    "SELENIUM_DRIVER_ERROR": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 7.0
+    },
+    "SELENIUM_UI_FAILURE": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "SERIALIZER_STEP_FAILURE": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 2.0
+    },
+    "SUCCESS": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 22.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 59.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 59.0
+    }
+  },
+  "validation_report": {
+    "BUILD_ABORTED": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1.0
+    },
+    "COMPILATION_ERROR": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1.0
+    },
+    "CONNECTION_REFUSED": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1.0
+    },
+    "NO_TESTS_EXECUTED": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1.0
+    },
+    "SELENIUM_DRIVER_ERROR": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 3.0
+    },
+    "SELENIUM_UI_FAILURE": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 8.0
+    },
+    "SERIALIZER_STEP_FAILURE": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1.0
+    },
+    "SUCCESS": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 9.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 25.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 25.0
+    }
+  },
+  "validation_confusion_matrix": [
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      8,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      9
+    ]
+  ],
+  "feature_importance": null,
+  "label_distribution": {
+    "BUILD_ABORTED": 12,
+    "COMPILATION_ERROR": 6,
+    "CONNECTION_REFUSED": 9,
+    "NO_TESTS_EXECUTED": 16,
+    "SELENIUM_DRIVER_ERROR": 39,
+    "SELENIUM_UI_FAILURE": 108,
+    "SERIALIZER_STEP_FAILURE": 9,
+    "SUCCESS": 120
+  }
+}

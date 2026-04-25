@@ -105,7 +105,13 @@ def ingest_all(background_tasks: BackgroundTasks, analyse: bool = False):
     Pass ?analyse=true to also trigger Claude analysis for each build.
     """
     LOGS_DIR.mkdir(parents=True, exist_ok=True)
-    log_files = list(LOGS_DIR.glob("*.log")) + list(LOGS_DIR.glob("*.log.txt")) + list(LOGS_DIR.glob("*.txt"))
+    seen: set = set()
+    all_files = (
+        list(LOGS_DIR.glob("*.log"))
+        + list(LOGS_DIR.glob("*.log.txt"))
+        + list(LOGS_DIR.glob("*.txt"))
+    )
+    log_files = [p for p in all_files if p.resolve() not in seen and not seen.add(p.resolve())]
     ingested, skipped = 0, 0
 
     for path in log_files:

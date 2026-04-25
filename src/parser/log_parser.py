@@ -42,7 +42,11 @@ _SERIALIZER_FAIL_RE = re.compile(r"STEP .+? FAILED", re.I)
 _SQL_ERR_RE = re.compile(r"SQLException|ORA-\d+|SQL.*error", re.I)
 _COMPILE_ERR_RE = re.compile(r"COMPILATION ERROR|BUILD FAILURE.*compile", re.I | re.S)
 _GIT_ERR_RE = re.compile(r"ERROR.*git|git.*ERROR|Repository .* not found", re.I)
-_TIMEOUT_RE = re.compile(r"timed? ?out|timeout", re.I)
+_TIMEOUT_RE = re.compile(r"Timeout waiting|exceeded.*timeout|process.*timed out|step.*timed out|build timed out", re.I)
+_SELENIUM_UI_RE = re.compile(r"WebElement NULL via XPATH|NoSuchElementException|ElementNotVisible|StaleElementReference", re.I)
+_SELENIUM_DRIVER_RE = re.compile(r"chromedriver(?:\.exe)? not found|cannot find.*chromedriver|failed to start.*chrome|chrome.*driver.*error|ERROR.*chromedriver", re.I)
+_MAVEN_DEP_RE = re.compile(r"Failed to parse POMs|Non-resolvable parent POM|Could not find artifact|Failed to transfer", re.I)
+_JVM_RE = re.compile(r"Could not create the Java Virtual Machine|A fatal exception has occurred.*JVM|ERROR.*Failed to launch Maven", re.I)
 
 _FAILURE_SCENARIO_RE = re.compile(
     r"\[ERROR\] (.+?)\s+Time elapsed:.+?<<< FAILURE!", re.S
@@ -139,11 +143,49 @@ def _extract_errors(text: str, status: BuildStatus) -> list[ExtractedError]:
             line_number=text[:m.start()].count("\n") + 1,
         ))
 
+    if _JVM_RE.search(text):
+        m = _JVM_RE.search(text)
+        errors.append(ExtractedError(
+            category=ErrorCategory.JVM_ERROR,
+            message="Java Virtual Machine failed to start",
+            detail=_first_line_around(text, m.start()),
+            line_number=text[:m.start()].count("\n") + 1,
+        ))
+
+    if _MAVEN_DEP_RE.search(text):
+        m = _MAVEN_DEP_RE.search(text)
+        errors.append(ExtractedError(
+            category=ErrorCategory.MAVEN_DEPENDENCY_ERROR,
+            message="Maven dependency resolution failed",
+            detail=_first_line_around(text, m.start()),
+            line_number=text[:m.start()].count("\n") + 1,
+        ))
+
+    if _SELENIUM_DRIVER_RE.search(text):
+        m = _SELENIUM_DRIVER_RE.search(text)
+        errors.append(ExtractedError(
+            category=ErrorCategory.SELENIUM_DRIVER_ERROR,
+            message="Selenium ChromeDriver not found or failed to start",
+            detail=_first_line_around(text, m.start()),
+            line_number=text[:m.start()].count("\n") + 1,
+        ))
+
+    if _SELENIUM_UI_RE.search(text) and not any(
+        e.category == ErrorCategory.SELENIUM_DRIVER_ERROR for e in errors
+    ):
+        m = _SELENIUM_UI_RE.search(text)
+        errors.append(ExtractedError(
+            category=ErrorCategory.SELENIUM_UI_FAILURE,
+            message="Selenium UI element not found via XPath",
+            detail=_first_line_around(text, m.start()),
+            line_number=text[:m.start()].count("\n") + 1,
+        ))
+
     if _TIMEOUT_RE.search(text):
         m = _TIMEOUT_RE.search(text)
         errors.append(ExtractedError(
             category=ErrorCategory.TIMEOUT,
-            message="Timeout detected",
+            message="Build step timed out",
             detail=_first_line_around(text, m.start()),
             line_number=text[:m.start()].count("\n") + 1,
         ))
