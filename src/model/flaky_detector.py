@@ -11,6 +11,12 @@ Detection logic per scenario:
       0.10 < fail_rate < 0.90   AND   alternation_rate >= 0.30
   - A scenario is CONSISTENTLY_FAILING if fail_rate >= 0.90
   - A scenario is CONSISTENTLY_PASSING  if fail_rate <= 0.10
+
+Log format (actual Cucumber output):
+  Failed scenarios:
+  file:///path/features/fctu/ScenarioName.feature:158 # Scenario description
+  ...
+  13 Scenarios (3 failed, 10 passed)
 """
 
 import re
@@ -19,35 +25,24 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from src.parser.log_parser import parse_log_file
-from src.parser.models import BuildStatus
+from src.parser.models import BuildStatus, JobType
 
-# Regex to extract failing Cucumber scenario names from logs
-# Matches: [ERROR] FeatureName.ScenarioName  Time elapsed: X.XXX s  <<< FAILURE!
-_FAIL_SCENARIO_RE = re.compile(
-    r"\[ERROR\]\s+(\S+?\.\S+?)\s+Time elapsed:.+?<<< FAILURE!",
-    re.I,
-)
+# Extracts scenario name from "Failed scenarios:" section lines:
+# file:///path/features/fctu/Name.feature:158 # Scenario description
+_FAIL_SCENARIO_RE = re.compile(r'\.feature:\d+\s+#\s+(.+?)$', re.M)
 
-# Also catch scenario lines like:
-# FiabilisationMontantNetSocial_FormationProfessionnelle.Fiabilisation montant net social
-_FAIL_SCENARIO_RE2 = re.compile(
-    r"^\s*\[ERROR\]\s+([\w.]+)\s+Time elapsed",
-    re.M | re.I,
-)
+# Detects whether a "Failed scenarios:" section exists at all
+_FAILED_SECTION_RE = re.compile(r'^Failed scenarios:\s*$', re.M)
 
-# Cucumber step-level failure line: "  Scenario: ..." followed by failure
-_SCENARIO_NAME_RE = re.compile(
-    r"Scenario(?:: | Outline: )(.+?)(?:\s*#|\s*$)",
-    re.M,
-)
+# Cucumber jobs that produce scenario-level output
+_CUCUMBER_JOBS = {JobType.FCTU_TRAIN1, JobType.FCTU_TRAIN2, JobType.PROD_ATIJ}
 
 
 @dataclass
 class ScenarioHistory:
     name: str
     job_type: str
-    runs: list[bool] = field(default_factory=list)      # True = passed, False = failed
-    build_ids: list[int] = field(default_factory=list)  # corresponding build DB ids
+    runs: list[bool] = field(default_factory=list)  # True = passed, False = failed
 
     @property
     def total_runs(self) -> int:
@@ -63,9 +58,7 @@ class ScenarioHistory:
     def alternation_rate(self) -> float:
         if len(self.runs) < 2:
             return 0.0
-        transitions = sum(
-            1 for a, b in zip(self.runs, self.runs[1:]) if a != b
-        )
+        transitions = sum(1 for a, b in zip(self.runs, self.runs[1:]) if a != b)
         return transitions / (len(self.runs) - 1)
 
     @property
@@ -95,41 +88,40 @@ class ScenarioHistory:
 
 
 def _extract_failing_scenarios(log_text: str) -> set[str]:
-    """Extract names of failing Cucumber scenarios from a log."""
+    """Extract names of failing Cucumber scenarios from the 'Failed scenarios:' section."""
+    if not _FAILED_SECTION_RE.search(log_text):
+        return set()
     names = set()
-    for pattern in (_FAIL_SCENARIO_RE, _FAIL_SCENARIO_RE2):
-        for m in pattern.finditer(log_text):
-            raw = m.group(1).strip()
-            # Normalise: take the scenario part after the last dot if composite
-            if "." in raw:
-                scenario = raw.split(".", 1)[1].strip()
-            else:
-                scenario = raw
-            if len(scenario) > 3:
-                names.add(scenario[:200])
-    return names
-
-
-def _extract_all_scenarios(log_text: str) -> set[str]:
-    """Extract all scenario names mentioned in the log (passed or failed)."""
-    names = set()
-    for m in _SCENARIO_NAME_RE.finditer(log_text):
+    for m in _FAIL_SCENARIO_RE.finditer(log_text):
         name = m.group(1).strip()
         if len(name) > 3:
-            names.add(name[:200])
+            names.add(name[:300])
     return names
 
 
-def analyse_flakiness(logs_dir: str | Path = "data/logs") -> dict[str, ScenarioHistory]:
+def analyse_flakiness(logs_dir: str | Path = "data/logs") -> dict[str, "ScenarioHistory"]:
     """
-    Scan all log files, build per-scenario run histories,
-    and return a dict of scenario_name → ScenarioHistory.
+    Scan all Cucumber log files, build per-scenario run histories,
+    and return a dict of '{job_type}::{scenario_name}' → ScenarioHistory.
+
+    Strategy:
+      1. First pass: collect failed scenario names per build and all known
+         scenario names per job type (union of all failures across all builds).
+      2. Second pass: for each build, scenarios in the job's universe that
+         did NOT appear in that build's failed list are marked as PASSED.
     """
     logs_dir = Path(logs_dir)
-    log_files = sorted(logs_dir.glob("*.log")) + sorted(logs_dir.glob("*.log.txt")) + sorted(logs_dir.glob("*.txt"))
+    all_files = (
+        sorted(logs_dir.glob("*.log"))
+        + sorted(logs_dir.glob("*.log.txt"))
+        + sorted(logs_dir.glob("*.txt"))
+    )
+    seen: set = set()
+    log_files = [p for p in all_files if p.resolve() not in seen and not seen.add(p.resolve())]
 
-    # Only Cucumber jobs produce scenario-level results
-    histories: dict[str, ScenarioHistory] = {}
+    # First pass: collect per-build failures and build the universe of scenario names
+    build_data: list[tuple[str, set[str], bool]] = []  # (job_type, failed_names, had_cucumber_output)
+    universe: dict[str, set[str]] = defaultdict(set)   # job_type -> all known scenario names
 
     for path in log_files:
         try:
@@ -137,50 +129,39 @@ def analyse_flakiness(logs_dir: str | Path = "data/logs") -> dict[str, ScenarioH
         except Exception:
             continue
 
-        # Only process Selenium/Cucumber jobs
-        from src.parser.models import JobType
-        if build.job_type not in (
-            JobType.FCTU_TRAIN1, JobType.FCTU_TRAIN2, JobType.PROD_ATIJ
-        ):
+        if build.job_type not in _CUCUMBER_JOBS:
             continue
 
-        raw = build.raw_log
-        failing = _extract_failing_scenarios(raw)
-        all_scenarios = _extract_all_scenarios(raw)
-
-        # If no scenarios detected at all, skip
-        if not failing and not all_scenarios:
-            continue
-
-        # Scenarios that appear in log but not in failing set = passed
-        passing = all_scenarios - failing
+        raw = build.raw_log or path.read_text(encoding="utf-8", errors="replace")
+        failed = _extract_failing_scenarios(raw)
+        had_output = bool(_FAILED_SECTION_RE.search(raw)) or build.status == BuildStatus.SUCCESS
 
         job_type = build.job_type.value
+        build_data.append((job_type, failed, had_output))
+        for name in failed:
+            universe[job_type].add(name)
 
-        for name in failing:
+    # Second pass: build run histories
+    histories: dict[str, ScenarioHistory] = {}
+
+    for job_type, failed, had_output in build_data:
+        if not had_output:
+            continue
+
+        all_known = universe[job_type]
+        if not all_known:
+            continue
+
+        for name in all_known:
             key = f"{job_type}::{name}"
             if key not in histories:
                 histories[key] = ScenarioHistory(name=name, job_type=job_type)
-            histories[key].runs.append(False)
-
-        for name in passing:
-            key = f"{job_type}::{name}"
-            if key not in histories:
-                histories[key] = ScenarioHistory(name=name, job_type=job_type)
-            histories[key].runs.append(True)
+            histories[key].runs.append(name not in failed)  # True = passed
 
     return histories
 
 
 def get_flaky_summary(logs_dir: str | Path = "data/logs") -> dict:
-    """
-    Returns a summary dict with:
-      - flaky       : list of flaky scenario dicts
-      - consistently_failing : list
-      - stable      : count
-      - total       : total unique scenarios tracked
-      - flaky_rate  : flaky / total
-    """
     histories = analyse_flakiness(logs_dir)
 
     flaky, consistently_failing, stable = [], [], []
@@ -199,16 +180,15 @@ def get_flaky_summary(logs_dir: str | Path = "data/logs") -> dict:
     total = len(flaky) + len(consistently_failing) + len(stable)
     flaky_rate = len(flaky) / total if total > 0 else 0.0
 
-    # Sort by alternation_rate desc
     flaky.sort(key=lambda x: x["alternation_rate"], reverse=True)
     consistently_failing.sort(key=lambda x: x["fail_rate"], reverse=True)
 
     return {
-        "total_scenarios":       total,
-        "flaky_count":           len(flaky),
-        "consistently_failing":  len(consistently_failing),
-        "stable_count":          len(stable),
-        "flaky_rate":            round(flaky_rate, 4),
-        "flaky_scenarios":       flaky[:50],       # top 50
-        "failing_scenarios":     consistently_failing[:20],
+        "total_scenarios":      total,
+        "flaky_count":          len(flaky),
+        "consistently_failing": len(consistently_failing),
+        "stable_count":         len(stable),
+        "flaky_rate":           round(flaky_rate, 4),
+        "flaky_scenarios":      flaky[:50],
+        "failing_scenarios":    consistently_failing[:20],
     }
