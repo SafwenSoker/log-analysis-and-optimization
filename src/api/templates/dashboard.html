@@ -64,18 +64,24 @@
 </div>
 
 <!-- Charts -->
-<div class="row g-3 mb-4" style="min-height:360px">
-  <!-- Build Status — half the screen -->
-  <div class="col-md-6 d-flex">
+<div class="row g-3 mb-4" style="min-height:400px">
+  <!-- Left column: Build Status + Model CV Scores -->
+  <div class="col-md-6 d-flex flex-column gap-2">
     <div class="card border-0 shadow-sm flex-fill">
-      <div class="card-header bg-transparent fw-semibold small">Build Status</div>
-      <div class="card-body d-flex align-items-center justify-content-center">
-        <canvas id="statusChart" style="max-height:300px"></canvas>
+      <div class="card-header bg-transparent fw-semibold small py-1">Build Status</div>
+      <div class="card-body p-2 d-flex align-items-center justify-content-center">
+        <canvas id="statusChart"></canvas>
+      </div>
+    </div>
+    <div class="card border-0 shadow-sm flex-fill">
+      <div class="card-header bg-transparent fw-semibold small py-1">Model CV Scores</div>
+      <div class="card-body p-2 d-flex align-items-center justify-content-center">
+        <canvas id="modelChart"></canvas>
       </div>
     </div>
   </div>
 
-  <!-- Right column: 3 charts stacked, same total height as Build Status -->
+  <!-- Right column: By Job Type + Top Error Categories -->
   <div class="col-md-6 d-flex flex-column gap-2">
     <div class="card border-0 shadow-sm flex-fill">
       <div class="card-header bg-transparent fw-semibold small py-1">By Job Type</div>
@@ -87,12 +93,6 @@
       <div class="card-header bg-transparent fw-semibold small py-1">Top Error Categories</div>
       <div class="card-body p-2 d-flex align-items-center justify-content-center">
         <canvas id="errorChart"></canvas>
-      </div>
-    </div>
-    <div class="card border-0 shadow-sm flex-fill">
-      <div class="card-header bg-transparent fw-semibold small py-1">Model CV Scores</div>
-      <div class="card-body p-2 d-flex align-items-center justify-content-center">
-        <canvas id="modelChart"></canvas>
       </div>
     </div>
   </div>
