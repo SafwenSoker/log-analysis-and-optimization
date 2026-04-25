@@ -234,9 +234,12 @@ def train(logs_dir: str | Path = "data/logs") -> dict:
     best_pipeline.fit(rows_traintest, y_traintest)
 
     # ── Step 5: evaluate on held-out test fold (model selection check) ────────
+    all_labels = list(range(len(le.classes_)))
+
     y_pred_test = best_pipeline.predict(rows_test)
     test_report = classification_report(
         y_test, y_pred_test,
+        labels=all_labels,
         target_names=le.classes_,
         output_dict=True,
         zero_division=0,
@@ -246,11 +249,12 @@ def train(logs_dir: str | Path = "data/logs") -> dict:
     y_pred_val = best_pipeline.predict(rows_val)
     val_report = classification_report(
         y_val, y_pred_val,
+        labels=all_labels,
         target_names=le.classes_,
         output_dict=True,
         zero_division=0,
     )
-    val_conf_matrix = confusion_matrix(y_val, y_pred_val).tolist()
+    val_conf_matrix = confusion_matrix(y_val, y_pred_val, labels=all_labels).tolist()
 
     logger.info(
         f"Validation set (n={len(rows_val)}): "
