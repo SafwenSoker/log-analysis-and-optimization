@@ -169,8 +169,19 @@ function updatePagination() {
 async function analyseOne(buildId, btn) {
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
-  await fetch(`/api/analysis/${buildId}`, { method: 'POST' });
-  setTimeout(() => { btn.disabled = false; btn.innerHTML = '<i class="bi bi-cpu"></i>'; loadBuilds(); }, 1500);
+  try {
+    const result = await fetch(`/api/analysis/${buildId}/sync`, { method: 'POST' }).then(r => r.json());
+    const row = btn.closest('tr');
+    const cells = row.cells;
+    const pred = result.predicted_category?.replace(/_/g, ' ') || '—';
+    const conf = result.confidence_score ? `${(result.confidence_score * 100).toFixed(0)}%` : '—';
+    const sev  = result.severity || '';
+    cells[4].innerHTML = `<span class="badge badge-${sev} small">${pred}</span>`;
+    cells[5].textContent = conf;
+    cells[9].innerHTML  = '<i class="bi bi-check-circle-fill text-success"></i>';
+  } catch (_) {}
+  btn.disabled = false;
+  btn.innerHTML = '<i class="bi bi-cpu"></i>';
 }
 
 // Train button

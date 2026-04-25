@@ -234,6 +234,7 @@ def get_stats() -> dict:
         ).fetchall()
         by_category = conn.execute(
             select(analyses_table.c.predicted_category, func.count().label("cnt"))
+            .where(analyses_table.c.predicted_category != "SUCCESS")
             .group_by(analyses_table.c.predicted_category)
             .order_by(func.count().desc())
         ).fetchall()
