@@ -1,0 +1,525 @@
+Started by upstream project "PROD_INITIALISATION_TNR" build number 211
+originally caused by:
+ Started by upstream project "PROD_TNR_PARALLEL_PUBLIC" build number 116
+ originally caused by:
+  Started by timer
+Running as SYSTEM
+Building in workspace D:\Jenkins\workspace\PROD_Serializer
+The recommended git tool is: NONE
+using credential cc3ffaa8-96cb-4d9d-abcc-84406bb605d4
+ > git.exe rev-parse --resolve-git-dir D:\Jenkins\workspace\PROD_Serializer\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url http://hra-bitbucket.ptx.fr.sopra/scm/declfr_indus/sdlc15.git # timeout=10
+Fetching upstream changes from http://hra-bitbucket.ptx.fr.sopra/scm/declfr_indus/sdlc15.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.32.0.windows.1'
+using GIT_ASKPASS to set credentials 
+ > git.exe fetch --tags --force --progress -- http://hra-bitbucket.ptx.fr.sopra/scm/declfr_indus/sdlc15.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+Checking out Revision 02e742d12a76e3704615615bf9aff8073979b199 (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 02e742d12a76e3704615615bf9aff8073979b199 # timeout=10
+Commit message: "Revert "DEV::DSNINDUS::gestion code erreur pour mass_installer_app""
+ > git.exe rev-list --no-walk 02e742d12a76e3704615615bf9aff8073979b199 # timeout=10
+[PROD_Serializer] $ cmd /c call C:\WINDOWS\TEMP\jenkins10574095878133973981.bat
+
+D:\Jenkins\workspace\PROD_Serializer>Prod\dispatcher.bat Prod serializer HR qa55 23 false true 
+A subdirectory or file D:\Jenkins\workspace\PROD_Serializer\Prod\tmp already exists.
+A subdirectory or file D:\Jenkins\workspace\PROD_Serializer\Prod\logs already exists.
+ECHO is off.
+ENTREE 
+Execution du script de serialisation avec les parametres suivants:
+ENTREE 
+Produit = HR
+ENTREE 
+Env = qa55
+ENTREE 
+ID_cas_test = 23
+"PRODUCT : HR"
+"SCENARIO : 23"
+"SEQUENCE : 1"
+"PATH : C:\WTF\TOOLS_TNR_Declaratif_France\jisql\" 
+"SCRIPT : single_remote_delete.bat" 
+"TECHNO : bat"
+"SERVER : SDLC15"
+"PARAMETRES : FPT D12026172" 
+ENTREE 
+EXECUTION DE LA COMMANDE : C:\WTF\TOOLS_TNR_Declaratif_France\jisql\ single_remote_delete.bat sur SDLC15
+"EXECUTION DE LA COMMANDE : "C:\WTF\TOOLS_TNR_Declaratif_France\jisql\single_remote_delete.bat " Cible :  "qa55  FPT D12026172
+"DBQUERY1 : ""delete from zy00 where soccle = 'FPT' and matcle like 'D12026172%';"
+"DBQUERY2 : ""delete from AB10 where IDCP00 = 'FPT' and matcle like 'D12026172%';"
+"DBQUERY3 : ""delete from ZX00 where soccle = 'FPT' and matric like 'D12026172%';"
+"DBQUERY4 : ""delete from ZZ00 where etabli = '';"
+1 rows affected.
+0 rows affected.
+1 rows affected.
+0 rows affected.
+"PRODUCT : HR"
+"SCENARIO : 23"
+"SEQUENCE : 1"
+"PATH : C:\WTF\TOOLS_TNR_Declaratif_France\jisql\" 
+"SCRIPT : single_remote_delete.bat" 
+"TECHNO : bat"
+"SERVER : SDLC15"
+"PARAMETRES : FPT D12026178B" 
+ENTREE 
+EXECUTION DE LA COMMANDE : C:\WTF\TOOLS_TNR_Declaratif_France\jisql\ single_remote_delete.bat sur SDLC15
+"EXECUTION DE LA COMMANDE : "C:\WTF\TOOLS_TNR_Declaratif_France\jisql\single_remote_delete.bat " Cible :  "qa55  FPT D12026178B
+"DBQUERY1 : ""delete from zy00 where soccle = 'FPT' and matcle like 'D12026178B%';"
+"DBQUERY2 : ""delete from AB10 where IDCP00 = 'FPT' and matcle like 'D12026178B%';"
+"DBQUERY3 : ""delete from ZX00 where soccle = 'FPT' and matric like 'D12026178B%';"
+"DBQUERY4 : ""delete from ZZ00 where etabli = '';"
+1 rows affected.
+8 rows affected.
+2 rows affected.
+0 rows affected.
+"PRODUCT : HR"
+"SCENARIO : 23"
+"SEQUENCE : 2"
+"PATH : C:\WTF\RFFG\TNRMENSUELLE\xmlZY\" 
+"SCRIPT : LauncherTNRMENSUELLE.bat" 
+"TECHNO : bat"
+"SERVER : SDLC15"
+"PARAMETRES : $Environnement" 
+ENTREE 
+EXECUTION DE LA COMMANDE : C:\WTF\RFFG\TNRMENSUELLE\xmlZY\ LauncherTNRMENSUELLE.bat sur SDLC15
+"EXECUTION DE LA COMMANDE : "C:\WTF\RFFG\TNRMENSUELLE\xmlZY\LauncherTNRMENSUELLE.bat " Cible :  "qa55  $Environnement
+
+D:\Jenkins\workspace\PROD_Serializer>set DSNTB_Env_HRa=qa55 
+
+D:\Jenkins\workspace\PROD_Serializer>rem JAVA_HOME spÃ©cifique Wonder Testing 
+
+D:\Jenkins\workspace\PROD_Serializer>set JAVA_HOME=C:\Program Files\Java\jdk1.8.0_201 
+
+D:\Jenkins\workspace\PROD_Serializer>c:
+
+C:\>cd C:\wt9_Tool116 
+
+C:\wt9_Tool116>wt C:\wtf\RFFG\TNRMENSUELLE\xmlZY\TNRMENSUELLE.js 
+
+C:\wt9_Tool116>rem echo off 
+
+C:\wt9_Tool116>set WT_VERSION=1.1.6 
+
+C:\wt9_Tool116>if not "C:\Program Files\Java\jdk1.8.0_201" == "" (
+set JDK_HOME="C:\Program Files\Java\jdk1.8.0_201"  
+ echo   
+ goto :Continue  
+) 
+ECHO is on.
+
+C:\wt9_Tool116>rem FBI 
+
+C:\wt9_Tool116>echo jdk home "C:\Program Files\Java\jdk1.8.0_201" 
+jdk home "C:\Program Files\Java\jdk1.8.0_201"
+
+C:\wt9_Tool116>echo zava C:\Program Files\Java\jdk1.8.0_201 
+zava C:\Program Files\Java\jdk1.8.0_201
+
+C:\wt9_Tool116>set LIB_HOME="C:\wt9_Tool116\lib" 
+
+C:\wt9_Tool116>set RHINO_CLASSPATH=;"C:\wt9_Tool116\lib"\hr-kernel-1.0.0-bootstrap.jar 
+
+C:\wt9_Tool116>goto :next  
+
+C:\wt9_Tool116>if ""C:\wtf\RFFG\TNRMENSUELLE\xmlZY\TNRMENSUELLE.js"" == """" (
+set RHINO=org.mozilla.javascript.tools.shell.Main   
+ goto :fin  
+) 
+
+C:\wt9_Tool116>set v_test=C:\wtf\RFFG\TNRMENSUELLE\xmlZY\TNRMENSUELLE.js 
+
+C:\wt9_Tool116>set v_result=C:/wtf/RFFG/TNRMENSUELLE/xmlZY/TNRMENSUELLE.js 
+
+C:\wt9_Tool116>SHIFT
+
+C:\wt9_Tool116>set global_env_name= 
+
+C:\wt9_Tool116>set global_env_name=\=/ 
+
+C:\wt9_Tool116>SHIFT
+
+C:\wt9_Tool116>set global_server_ip= 
+
+C:\wt9_Tool116>set global_server_ip=\=/ 
+
+C:\wt9_Tool116>SHIFT
+
+C:\wt9_Tool116>set global_server_port= 
+
+C:\wt9_Tool116>set global_server_port=\=/ 
+
+C:\wt9_Tool116>SHIFT
+
+C:\wt9_Tool116>set global_user= 
+
+C:\wt9_Tool116>set global_user=\=/ 
+
+C:\wt9_Tool116>SHIFT
+
+C:\wt9_Tool116>set global_pwd= 
+
+C:\wt9_Tool116>set global_pwd=\=/ 
+
+C:\wt9_Tool116>SHIFT
+
+C:\wt9_Tool116>set global_roll= 
+
+C:\wt9_Tool116>set global_roll=\=/ 
+
+C:\wt9_Tool116>SHIFT
+
+C:\wt9_Tool116>set global_mode_connexion= 
+
+C:\wt9_Tool116>set global_mode_connexion=\=/ 
+
+C:\wt9_Tool116>SHIFT
+
+C:\wt9_Tool116>set global_test_version= 
+
+C:\wt9_Tool116>set global_test_version=\=/ 
+
+C:\wt9_Tool116>SHIFT
+
+C:\wt9_Tool116>set global_jobid= 
+
+C:\wt9_Tool116>set WT=C:/wt9_Tool116 
+
+C:\wt9_Tool116>set RHINO=org.mozilla.javascript.tools.shell.Main -e "var global_jobid='';var global_env_name='\=/';var global_server_ip='\=/';var global_server_port='\=/';var global_user='\=/';var global_pwd='\=/';var global_roll='\=/';var global_mode_connexion='\=/';var global_test_version='\=/'" -e load('C:/wtf/RFFG/TNRMENSUELLE/xmlZY/TNRMENSUELLE.js') -e load("'C:/wt9_Tool116/Api/WonderTestingAPI.js'") -e load("'C:/wt9_Tool116/Api/HRADate.js'") -e load("'C:/wt9_Tool116/Api/EGAReportingApi.js'") -e load("'C:/wt9_Tool116/Api/RGReportingApi.js'") -e load("'C:/wt9_Tool116/Api/ReportingApi.js'") -e Scenario() -e wtScript.close() 
+
+C:\wt9_Tool116>goto :fin ) 
+
+C:\wt9_Tool116>"C:\Program Files\Java\jdk1.8.0_201"\bin\java -Xms512m -Xmx1024m -classpath ;"C:\wt9_Tool116\lib"\hr-kernel-1.0.0-bootstrap.jar -Dhr.jars.dirs="C:\wt9_Tool116\lib" com.hraccess.wutil.WAppLauncher org.mozilla.javascript.tools.shell.Main -e "var global_jobid='';var global_env_name='\=/';var global_server_ip='\=/';var global_server_port='\=/';var global_user='\=/';var global_pwd='\=/';var global_roll='\=/';var global_mode_connexion='\=/';var global_test_version='\=/'" -e load('C:/wtf/RFFG/TNRMENSUELLE/xmlZY/TNRMENSUELLE.js') -e load("'C:/wt9_Tool116/Api/WonderTestingAPI.js'") -e load("'C:/wt9_Tool116/Api/HRADate.js'") -e load("'C:/wt9_Tool116/Api/EGAReportingApi.js'") -e load("'C:/wt9_Tool116/Api/RGReportingApi.js'") -e load("'C:/wt9_Tool116/Api/ReportingApi.js'") -e Scenario() -e wtScript.close() 
+19:17:31,554                  WonderTesting  INFO    WONDER-TESTING is taking off !! Thu Mar 19 19:17:31 CET 2026 *** 
+19:17:31,569                  WonderTesting  INFO   * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  
+19:17:31,601                  WonderTesting  INFO          From the Environment   QA55 I confirm QA55 YEAH !!!
+19:17:31,616                  WonderTesting  INFO    
+19:17:31,648                  WonderTesting  INFO  Loading Functions   . . . 
+19:17:31,944                  WonderTesting  INFO  options FT type xml
+19:17:31,961                  WonderTesting  INFO  Loaded scenarios from c:/WTF/DmodFP/LoadAllScenario.js  . . . 
+19:17:32,259 .hraccess.log.ophrc.connection  INFO OPHRC1112 Session's configuration is 
+    login=
+    normal_message_sender.security=disabled
+    normal_message_sender.use_configuration_with_prefix=shared_configuration
+    openhr_server.server=dlnxshrhraccess01.marc.fr.ssg
+    privilegied_message_sender.security=disabled
+    privilegied_message_sender.use_configuration_with_prefix=shared_configuration
+    sensitive_message_sender.security=disabled
+    sensitive_message_sender.use_configuration_with_prefix=shared_configuration
+    session.language=F
+    session.login_module_hint=standardLoginModule
+    session.process_list=[AS511, AS611, AS906, JA000, JA001, JA002, JA003, JA010, JA901, JA913, JD0MJ, JD800, JDPGM, JDXPG, JDXGD, FDZMJ]
+    session.work_directory=c:/wt_scenarios/zopenhs
+    shared_configuration.port=16155
+
+19:17:32,259 .hraccess.log.ophrc.connection  INFO OPHRC1021 Opening a new (stand-alone) session ...
+19:17:32,259         com.hraccess.log.ophrc  INFO OPHRC1047 Using cache directory <c:\wt_scenarios\zopenhs>
+19:17:32,259 .hraccess.log.ophrc.connection  INFO OPHRC1014 Session's work directory is <c:\wt_scenarios\zopenhs>
+19:17:32,259 .hraccess.log.ophrc.connection  INFO OPHRC1011 Loading message sender <com.hraccess.openhr.socket.SocketMessageSender> ...
+19:17:32,275 .hraccess.log.ophrc.connection  INFO OPHRC1011 Loading message sender <com.hraccess.openhr.socket.SocketMessageSender> ...
+19:17:32,275 .hraccess.log.ophrc.connection  INFO OPHRC1011 Loading message sender <com.hraccess.openhr.socket.SocketMessageSender> ...
+19:17:32,385 .hraccess.log.ophrc.connection  INFO OPHRC1015 Checking server release ...
+19:17:32,385 .hraccess.log.ophrc.connection  INFO OPHRC1016 HR Design server release is <7.000>
+19:17:32,385 .hraccess.log.ophrc.connection  INFO OPHRC1017 Checking server fixes ...
+19:17:32,401 .hraccess.log.ophrc.connection  INFO OPHRC1018 Listing available features ...
+19:17:32,417 .hraccess.log.ophrc.connection  INFO OPHRC1089 Feature "Service Pack 1 for HR Design Server 7.0 (REL70SP1)" is available
+19:17:32,417 .hraccess.log.ophrc.connection  INFO OPHRC1089 Feature "Event management (MODEVENT)" is available
+19:17:32,417 .hraccess.log.ophrc.connection  INFO OPHRC1090 Feature "Inbound and Outbound channels (MODCHANL)" isn't available
+19:17:32,417 .hraccess.log.ophrc.connection  INFO OPHRC1089 Feature "User language switch (MODUSRLG)" is available
+19:17:32,417 .hraccess.log.ophrc.connection  INFO OPHRC1089 Feature "ESP stage 1.4 (REL00014)" is available
+19:17:32,417 .hraccess.log.ophrc.connection  INFO OPHRC1089 Feature "DMS 2.1 (MODDMS02)" is available
+19:17:32,417 .hraccess.log.ophrc.connection  INFO OPHRC1089 Feature "Multistep Simulation (PTFSIMSE)" is available
+19:17:32,432 .hraccess.log.ophrc.connection  INFO OPHRC1090 Feature "First connection mechanism for contractors (MODDAPV2)" isn't available
+19:17:32,432 .hraccess.log.ophrc.connection  INFO OPHRC1089 Feature "Two new columns returned by the messages reading EV10 data table (MODTEV10)" is available
+19:17:32,432 .hraccess.log.ophrc.connection  INFO OPHRC1089 Feature "Extended Blob Management (MODEXTBL)" is available
+19:17:32,432 .hraccess.log.ophrc.connection  INFO OPHRC1089 Feature "JDBC profiles in system topology (MODPJDBC)" is available
+19:17:32,432 .hraccess.log.ophrc.connection  INFO OPHRC1089 Feature "Support of RGAA (MODRGAA)" is available
+19:17:32,432 .hraccess.log.ophrc.connection  INFO OPHRC1089 Feature "Extended Blob Management (MODEXTBL)" is available
+19:17:32,432 .hraccess.log.ophrc.connection  INFO OPHRC1089 Feature "JDBC profiles in system topology (MODPJDBC)" is available
+19:17:32,432 .hraccess.log.ophrc.connection  INFO OPHRC1089 Feature "User error grouping (MODERRV2)" is available
+19:17:32,432 .hraccess.log.ophrc.connection  INFO OPHRC1089 Feature "Technical partitioning of tables (MODTCPRT)" is available
+19:17:32,432 .hraccess.log.ophrc.connection  INFO OPHRC1089 Feature "New Interface UI / UX (MODDARJE)" is available
+19:17:32,590 .hraccess.log.ophrc.connection  INFO OPHRC1202 Loading dictionary from local file <c:\wt_scenarios\zopenhs\PPCLQA55.dic> ...
+19:17:34,301         com.hraccess.log.ophrc  INFO OPHRC1201 Dictionary is up-to-date
+19:17:34,301 .hraccess.log.ophrc.connection  INFO OPHRC1022 OpenHR session opened
+19:17:34,301 .hraccess.log.ophrc.connection  INFO OPHRC1110 Opened a stand-alone session with application ID <*00KQB-01X!C5> and instance ID <O9LW>
+19:17:34,443         com.hraccess.log.ophrc  INFO OPHRC1102 User <NONREGF> connected [Virtual session=nnMo8KNiacZkGMs1wSv1VQta8EdZW7Qb6Als7KMm5lycRKZWUV9phZ5huofWeMWq]
+19:17:34,474                  WonderTesting  INFO  *** Debut du plan de test  ... Thu Mar 19 19:17:34 CET 2026 *** 
+19:17:34,491                  WonderTesting  INFO <msg> select  count(*) from zy00 where soccle = 'FPT' and matcle = 'D12026172'</msg>
+Column 1Row 1
+19:17:34,616                  WonderTesting  INFO <msg> select  count(*) from zy00 where soccle = 'FPT' and matcle = 'D12026178B'</msg>
+Column 1Row 1
+19:17:34,710                  WonderTesting  INFO <msg> select  count(*) from zy00 where soccle = 'FPT' and matcle = 'undefined'</msg>
+Column 1Row 1
+19:17:34,804                  WonderTesting  INFO  ctl wTS_pathD1 string
+19:17:34,819                  WonderTesting  INFO  Args 2026-01-01 MT undefined listEe XMLFIL,D12026172 nbEmp 0 undefined
+19:17:34,850                  WonderTesting  INFO     $TOC0  Scenario   HireSeries  
+19:17:34,867                  WonderTesting  INFO  listEe   XMLFIL,D12026172 de type  object
+19:17:34,897                  WonderTesting  INFO $TOC2 Embauche d'un Employé     
+19:17:34,913                  WonderTesting  INFO  matcle, xmlfile   D12026172 D12026172 type string
+19:17:34,949                  WonderTesting  INFO Files   c:/WTF/RFFG/TNRMENSUELLE//xmlZY/ZYHire_D12026172.xml
+19:17:35,715 com.hraccess.log.ophrc.dossier  INFO OPHRC???? 1403 [{0}=Parameter]
+19:17:36,439         com.hraccess.log.ophrc  INFO OPHRC1051 Dossier creation: profile data section 00
+>>> WT V7 INFO : External Action: Commit the  dossier for CREATE 
+19:17:38,511 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <3X> (NULIGN=-1)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <3X> (New value = 0)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <00> (NULIGN=-1)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <05> (NULIGN=-1)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <06> (NULIGN=-1)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <07> (NULIGN=-1)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <0F> (NULIGN=-105)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <10> (NULIGN=-1)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <13> (NULIGN=-107)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <3B> (NULIGN=-110)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <5G> (NULIGN=-113)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <5U> (NULIGN=-116)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <CO> (NULIGN=-112)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <ES> (NULIGN=-111)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <FF> (NULIGN=-1)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <FL> (NULIGN=-109)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <GR> (NULIGN=-114)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <PO> (NULIGN=-115)
+19:17:38,621 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <TL> (NULIGN=-108)
+19:17:40,492 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <00> (New value = 33649)
+19:17:40,492 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <13> (New value = 1)
+19:17:40,492 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <3B> (New value = 1)
+19:17:40,492 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <FF> (New value = 0)
+19:17:40,492 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <05> (New value = 0)
+19:17:40,492 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <06> (New value = 0)
+19:17:40,492 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <07> (New value = 0)
+19:17:40,492 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <0F> (New value = 1)
+19:17:40,492 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <10> (New value = 0)
+19:17:40,492 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <CO> (New value = 1)
+19:17:40,492 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <ES> (New value = 1)
+19:17:40,492 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <FL> (New value = 1)
+19:17:40,492 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <TL> (New value = 1)
+19:17:40,492 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <5G> (New value = 1)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <5U> (New value = 1)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <GR> (New value = 1)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <PO> (New value = 1)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <5G> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <5U> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <0F> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <38> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <GR> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <13> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <FF> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <3B> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <FL> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <AD> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <10> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <ES> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <TL> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <06> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <CO> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <07> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <PO> (procedure code)
+19:17:40,508 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <05> (procedure code)
+The commit returned 16 errors
+... including 16 warnings without confirmation (weight 1 & 2)
+... including 0 warnings with confirmation (weight 3 & 4)
+and including 0 blocking errors (weight 3,4 or 5)
+Found an error whose weight is 2
+The description of the error is :La réglementation corporate n'existe pas.
+2
+Found an error whose weight is 2
+The description of the error is :Anomalie sur la clé du NIR - la valeur correcte est
+2
+Found an error whose weight is 2
+The description of the error is :Anomalie sur mouvement        Code saisi invalide
+2
+Found an error whose weight is 2
+The description of the error is :Anomalie sur mouvement        Rubrique alimentée par défaut
+2
+Found an error whose weight is 2
+The description of the error is :Anomalie sur mouvement        Contenu de la rubrique incorrect
+2
+Found an error whose weight is 2
+The description of the error is :Transcodification non trouvée pour le dossier réglementaire :
+2
+Found an error whose weight is 2
+The description of the error is :Anomalie sur mouvement        Rubrique alimentée par défaut
+2
+Found an error whose weight is 1
+The description of the error is :L'âge légal de départ en retraite n'est pas paramétré. La date légale de départ en retraite ne sera pas calculée.
+1
+Found an error whose weight is 1
+The description of the error is :L'âge maximal de départ en retraite n'est pas paramétré. La date maximale de départ en retraite ne sera pas calculée.
+1
+Found an error whose weight is 2
+The description of the error is :Le code INSEE commune n'est pas renseigné.
+2
+Found an error whose weight is 2
+The description of the error is :Anomalie sur mouvement        Code saisi invalide
+2
+Found an error whose weight is 2
+The description of the error is :La durée unitaire du contrat est supérieure à la durée légale
+2
+Found an error whose weight is 2
+The description of the error is :La durée totale des contrats n'est pas autorisée
+2
+Found an error whose weight is 1
+The description of the error is :Un signalement ADV de nature "01 - Embauche effective de l'individu" sera créé par l'acte de gestion "STDEMBAUCD" (Prise en charge détaillée) .
+1
+Found an error whose weight is 1
+The description of the error is :Information absente à tort :
+1
+Found an error whose weight is 1
+The description of the error is :Durée théorique de la semaine supérieure à celle contractuelle en date du :
+1
+error Warning(1) Nudoss = 33649, Data structure = ZY, Data section = , Item = , Procedure group = AS, Procedure = 05G1TL, Error code = 05G106
+Message = Durée théorique de la semaine supérieure à celle contractuelle en date du :
+Transaction done successfully 
+Column 1Row 1
+19:17:42,564                  WonderTesting  INFO  --> OK Employee Dossier D12026172 has been created ... Test **PASSED  
+19:17:42,579                  WonderTesting  INFO   Il y a  eu   1 transactions d'embauche réussies sur  1 demandées  !!   **** PASSED
+19:17:42,594                  WonderTesting  INFO  ctl wTS_pathD1 string
+19:17:42,626                  WonderTesting  INFO  Args 2026-02-01 MT undefined listEe XMLFIL,D12026178B nbEmp 0 undefined
+19:17:42,641                  WonderTesting  INFO     $TOC0  Scenario   HireSeries  
+19:17:42,657                  WonderTesting  INFO  listEe   XMLFIL,D12026178B de type  object
+19:17:42,688                  WonderTesting  INFO $TOC2 Embauche d'un Employé     
+19:17:42,704                  WonderTesting  INFO  matcle, xmlfile   D12026178B D12026178B type string
+19:17:42,735                  WonderTesting  INFO Files   c:/WTF/RFFG/TNRMENSUELLE//xmlZY/ZYHire_D12026178B.xml
+19:17:43,425 com.hraccess.log.ophrc.dossier  INFO OPHRC???? 1403 [{0}=Parameter]
+19:17:43,989         com.hraccess.log.ophrc  INFO OPHRC1051 Dossier creation: profile data section 00
+>>> WT V7 INFO : External Action: Commit the  dossier for CREATE 
+19:17:45,797 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <3X> (NULIGN=-1)
+19:17:45,813 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <3X> (New value = 0)
+19:17:45,813 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <00> (NULIGN=-1)
+19:17:45,813 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <05> (NULIGN=-1)
+19:17:45,813 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <06> (NULIGN=-1)
+19:17:45,813 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <07> (NULIGN=-1)
+19:17:45,829 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <0F> (NULIGN=-123)
+19:17:45,829 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <10> (NULIGN=-1)
+19:17:45,829 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <13> (NULIGN=-125)
+19:17:45,829 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <3B> (NULIGN=-128)
+19:17:45,829 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <5G> (NULIGN=-131)
+19:17:45,829 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <5U> (NULIGN=-134)
+19:17:45,829 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <CO> (NULIGN=-130)
+19:17:45,829 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <ES> (NULIGN=-129)
+19:17:45,829 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <FF> (NULIGN=-1)
+19:17:45,829 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <FL> (NULIGN=-127)
+19:17:45,829 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <GR> (NULIGN=-132)
+19:17:45,829 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <PO> (NULIGN=-133)
+19:17:45,829 ccess.log.ophrc.datasourceDesc  INFO OPHRC1052 New record insertion on node <TL> (NULIGN=-126)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <00> (New value = 33650)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <13> (New value = 1)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <3B> (New value = 1)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <FF> (New value = 0)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <05> (New value = 0)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <06> (New value = 0)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <07> (New value = 0)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <0F> (New value = 1)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <10> (New value = 0)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <CO> (New value = 1)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <ES> (New value = 1)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <FL> (New value = 1)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <TL> (New value = 1)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <5G> (New value = 1)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <5U> (New value = 1)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <GR> (New value = 1)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1069 Updating user data on node <PO> (New value = 1)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <CO> (procedure code)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <10> (procedure code)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <13> (procedure code)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <FF> (procedure code)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <5G> (procedure code)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <FL> (procedure code)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <5U> (procedure code)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <3B> (procedure code)
+19:17:46,694 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <PO> (procedure code)
+19:17:46,710 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <06> (procedure code)
+19:17:46,710 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <0F> (procedure code)
+19:17:46,710 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <AD> (procedure code)
+19:17:46,710 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <07> (procedure code)
+19:17:46,710 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <GR> (procedure code)
+19:17:46,710 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <38> (procedure code)
+19:17:46,710 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <05> (procedure code)
+19:17:46,710 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <TL> (procedure code)
+19:17:46,710 ccess.log.ophrc.datasourceDesc  INFO OPHRC1058 Deleting parent record for node <ES> (procedure code)
+The commit returned 16 errors
+... including 16 warnings without confirmation (weight 1 & 2)
+... including 0 warnings with confirmation (weight 3 & 4)
+and including 0 blocking errors (weight 3,4 or 5)
+Found an error whose weight is 2
+The description of the error is :La réglementation corporate n'existe pas.
+2
+Found an error whose weight is 2
+The description of the error is :Anomalie sur la clé du NIR - la valeur correcte est
+2
+Found an error whose weight is 2
+The description of the error is :Anomalie sur mouvement        Code saisi invalide
+2
+Found an error whose weight is 2
+The description of the error is :Anomalie sur mouvement        Rubrique alimentée par défaut
+2
+Found an error whose weight is 2
+The description of the error is :Anomalie sur mouvement        Contenu de la rubrique incorrect
+2
+Found an error whose weight is 2
+The description of the error is :Transcodification non trouvée pour le dossier réglementaire :
+2
+Found an error whose weight is 2
+The description of the error is :Anomalie sur mouvement        Rubrique alimentée par défaut
+2
+Found an error whose weight is 1
+The description of the error is :L'âge légal de départ en retraite n'est pas paramétré. La date légale de départ en retraite ne sera pas calculée.
+1
+Found an error whose weight is 1
+The description of the error is :L'âge maximal de départ en retraite n'est pas paramétré. La date maximale de départ en retraite ne sera pas calculée.
+1
+Found an error whose weight is 2
+The description of the error is :Le code INSEE commune n'est pas renseigné.
+2
+Found an error whose weight is 2
+The description of the error is :Anomalie sur mouvement        Code saisi invalide
+2
+Found an error whose weight is 2
+The description of the error is :La durée unitaire du contrat est supérieure à la durée légale
+2
+Found an error whose weight is 2
+The description of the error is :La durée totale des contrats n'est pas autorisée
+2
+Found an error whose weight is 1
+The description of the error is :Un signalement ADV de nature "01 - Embauche effective de l'individu" sera créé par l'acte de gestion "STDEMBAUCD" (Prise en charge détaillée) .
+1
+Found an error whose weight is 1
+The description of the error is :Information absente à tort :
+1
+Found an error whose weight is 1
+The description of the error is :Durée théorique de la semaine supérieure à celle contractuelle en date du :
+1
+error Warning(1) Nudoss = 33650, Data structure = ZY, Data section = , Item = , Procedure group = AS, Procedure = 05G1TL, Error code = 05G106
+Message = Durée théorique de la semaine supérieure à celle contractuelle en date du :
+Transaction done successfully 
+Column 1Row 1
+19:17:48,721                  WonderTesting  INFO  --> OK Employee Dossier D12026178B has been created ... Test **PASSED  
+19:17:48,752                  WonderTesting  INFO   Il y a  eu   1 transactions d'embauche réussies sur  1 demandées  !!   **** PASSED
+19:17:48,767                  WonderTesting  INFO  *** Fin du plan de test ... Thu Mar 19 19:17:48 CET 2026 *** 
+19:17:48,783         com.hraccess.log.ophrc  INFO OPHRC1007 Unable to find virtual session with ID <NONREGF> in session cache
+19:17:48,799 .hraccess.log.ophrc.connection  INFO OPHRC1001 Preparing to close OpenHR session ...
+19:17:48,814 .hraccess.log.ophrc.connection  INFO OPHRC1005 Closing OpenHR session ...
+19:17:48,846 .hraccess.log.ophrc.connection  INFO OPHRC1006 OpenHR session successfully closed
+19:17:48,861                  WonderTesting  INFO |___________________________________________________________________________________________|
+19:17:48,955                  WonderTesting  INFO 					|____ Identifiant du test    : 
+19:17:49,034                  WonderTesting  INFO 					|____ Version du test        : 
+19:17:49,112                  WonderTesting  INFO 					|____ Titre du test          : 
+19:17:49,190                  WonderTesting  INFO 					|____ Description du test    : 
+19:17:49,285                  WonderTesting  INFO 					|____ Nombre des étapes      : 0
+19:17:49,380                  WonderTesting  INFO 					|____ Environnement de test  : 
+19:17:49,458                  WonderTesting  INFO 					|____ Date début d'exécution : 
+19:17:49,553                  WonderTesting  INFO 					|____ Date fin   d'exécution : Le 19/03/2026 à 19:17:48
+19:17:49,632                  WonderTesting  INFO 					|____ Total étapes exécutées : 0 / 0
+19:17:49,710                  WonderTesting  INFO 					|____ Résulta global du test : OK
+19:17:49,773                  WonderTesting  INFO 					|____ Total étapes <OK>      : 0
+19:17:49,852                  WonderTesting  INFO 					|____ Total étapes <KO>      : 0
+19:17:49,945                  WonderTesting  INFO |___________________________________________________________________________________________|
+
+C:\wt9_Tool116>rem "C:\Program Files\Java\jdk1.8.0_201\bin\java" -Xms512m -Xmx1024m -classpath ;"C:\wt9_Tool116\lib"\hr-kernel-1.0.0-bootstrap.jar -Dhr.jars.dirs="C:\wt9_Tool116\lib" com.hraccess.wutil.WAppLauncher org.mozilla.javascript.tools.shell.Main -e "var global_jobid='';var global_env_name='\=/';var global_server_ip='\=/';var global_server_port='\=/';var global_user='\=/';var global_pwd='\=/';var global_roll='\=/';var global_mode_connexion='\=/';var global_test_version='\=/'" -e load('C:/wtf/RFFG/TNRMENSUELLE/xmlZY/TNRMENSUELLE.js') -e load("'C:/wt9_Tool116/Api/WonderTestingAPI.js'") -e load("'C:/wt9_Tool116/Api/HRADate.js'") -e load("'C:/wt9_Tool116/Api/EGAReportingApi.js'") -e load("'C:/wt9_Tool116/Api/RGReportingApi.js'") -e load("'C:/wt9_Tool116/Api/ReportingApi.js'") -e Scenario() -e wtScript.close() 
+
+C:\wt9_Tool116>pause
+Press any key to continue . . . 
+
+C:\wt9_Tool116>exit 0 
+Press any key to continue . . . 
+Finished: SUCCESS

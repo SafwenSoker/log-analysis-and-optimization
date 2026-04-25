@@ -3,7 +3,7 @@ data/logs/
 data/*.db
 data/*.sqlite3
 data/*.joblib
-*.log
+data/*.log
 *.log.txt
 
 # Python

@@ -1,0 +1,1241 @@
+Started by upstream project "PROD_TNR_MENSUELLE" build number 304
+originally caused by:
+ Started by user BILLO Franck (fbillo)
+Running as SYSTEM
+Building in workspace D:\Jenkins\workspace\PROD_Serializer@2
+The recommended git tool is: NONE
+using credential cc3ffaa8-96cb-4d9d-abcc-84406bb605d4
+ > git.exe rev-parse --resolve-git-dir D:\Jenkins\workspace\PROD_Serializer@2\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url http://hra-bitbucket.ptx.fr.sopra/scm/declfr_indus/sdlc15.git # timeout=10
+Fetching upstream changes from http://hra-bitbucket.ptx.fr.sopra/scm/declfr_indus/sdlc15.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.32.0.windows.1'
+using GIT_ASKPASS to set credentials 
+ > git.exe fetch --tags --force --progress -- http://hra-bitbucket.ptx.fr.sopra/scm/declfr_indus/sdlc15.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+Checking out Revision 02e742d12a76e3704615615bf9aff8073979b199 (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 02e742d12a76e3704615615bf9aff8073979b199 # timeout=10
+Commit message: "Revert "DEV::DSNINDUS::gestion code erreur pour mass_installer_app""
+ > git.exe rev-list --no-walk 02e742d12a76e3704615615bf9aff8073979b199 # timeout=10
+[PROD_Serializer@2] $ cmd /c call C:\WINDOWS\TEMP\jenkins1861738493065751409.bat
+
+D:\Jenkins\workspace\PROD_Serializer@2>Prod\dispatcher.bat Prod serializer HR qa55_mens 68 false true 
+A subdirectory or file D:\Jenkins\workspace\PROD_Serializer@2\Prod\tmp already exists.
+A subdirectory or file D:\Jenkins\workspace\PROD_Serializer@2\Prod\logs already exists.
+ECHO is off.
+ENTREE 
+Execution du script de serialisation avec les parametres suivants:
+ENTREE 
+Produit = HR
+ENTREE 
+Env = qa55_mens
+ENTREE 
+ID_cas_test = 68
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+ENTREE 
+EXECUTION DE LA COMMANDE : sequence_tester HR edsn $Environnement comparaison_mensuelle sur DSN01 qa55_mens
+DEBUG je rentre dans ExecuteScriptOnDSN01
+ENTREE 
+ Commande : serializer HR qa55_mens 68 1 false true 
+ENTREE 
+ EN COURS d'EXECUTION SUR dlnxhrpldsn01.marc.fr.ssg...PATIENTEZ SVP
+-- Keyboard-interactive authentication prompts from server: ------------------
+-- End of keyboard-interactive prompts from server ---------------------------
+ENTREE 
+Command on dlnxhrpldsn01.marc.fr.ssg DSN01 : serializer HR qa55_mens 68 1 false true; directory "/hrapleiadedsn/users/hrapldsn/_ProdAutoTNR_/Script" ; return code: 0
+-- Keyboard-interactive authentication prompts from server: ------------------
+-- End of keyboard-interactive prompts from server ---------------------------
+Execution de Serializer
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT1_2601 PERIODE=202601 MODE=PROD USER=NFT RADICAL=LOT1             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT1_2601
+[debug] Parametre d'execution dynamique: PERIODE=202601
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT1
+Execution de campaign:open 202601 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_2601
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202601
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/mesTachesTBV.txt 202601
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/mesTachesTBC.txt 202601
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT101-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT101-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT6-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT6-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT11-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT11-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT158-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT158-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT157-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT157-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT165-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT165-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT124-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT124-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT171-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT171-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT102-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT102-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT125-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT125-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT154-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT154-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT164-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT164-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT10-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT10-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT173-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT173-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT175-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT175-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT15-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT15-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT174-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT174-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT14-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT14-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT18-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT18-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT10-NET-ENIM-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT10-NET-ENIM-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT16-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT16-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT18-NET-ENIM-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT18-NET-ENIM-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT19-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT19-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT163-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT163-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT104-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT104-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT7-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT7-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT162-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT162-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT19-NET-ENIM-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT19-NET-ENIM-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT159-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT159-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT176-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT176-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT3-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT3-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT33-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT33-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT5-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT5-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT2-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT2-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT17-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT17-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105508/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT160-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT160-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202601-FR2-NFT179-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202601-FR2-NFT179-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT1_2601 PERIODE=202601 MODE=PROD USER=NFT RADICAL=LOT1              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT1_2602 PERIODE=202602 MODE=PROD USER=NFT RADICAL=LOT1             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT1_2602
+[debug] Parametre d'execution dynamique: PERIODE=202602
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT1
+Execution de campaign:open 202602 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_2602
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202602
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/mesTachesTBV.txt 202602
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/mesTachesTBC.txt 202602
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202602-FR2-NFT8-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202602-FR2-NFT8-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105716/generatedFile
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT1_2602 PERIODE=202602 MODE=PROD USER=NFT RADICAL=LOT1              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT1_2603 PERIODE=202603 MODE=PROD USER=NFT RADICAL=LOT1             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT1_2603
+[debug] Parametre d'execution dynamique: PERIODE=202603
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT1
+Execution de campaign:open 202603 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_2603
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202603
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/mesTachesTBV.txt 202603
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/mesTachesTBC.txt 202603
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202603-FR2-NFT13-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202603-FR2-NFT13-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105756/generatedFile
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT1_2603 PERIODE=202603 MODE=PROD USER=NFT RADICAL=LOT1              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT1_2605 PERIODE=202605 MODE=PROD USER=NFT RADICAL=LOT1             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT1_2605
+[debug] Parametre d'execution dynamique: PERIODE=202605
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT1
+Execution de campaign:open 202605 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_2605
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202605
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/mesTachesTBV.txt 202605
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/mesTachesTBC.txt 202605
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT1_202605-FR2-NFT1-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT1_202605-FR2-NFT1-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105835/generatedFile
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT1_2605 PERIODE=202605 MODE=PROD USER=NFT RADICAL=LOT1              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT2_2602 PERIODE=202602 MODE=PROD USER=NFT RADICAL=LOT2             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT2_2602
+[debug] Parametre d'execution dynamique: PERIODE=202602
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT2
+Execution de campaign:open 202602 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_2602
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202602
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/mesTachesTBV.txt 202602
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/mesTachesTBC.txt 202602
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT102-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT102-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT176-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT176-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT2-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT2-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT173-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT173-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT3-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT3-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT125-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT125-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT164-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT164-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT124-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT124-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT158-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT158-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT10-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT10-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT18-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT18-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT19-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT19-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT175-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT175-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT15-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT15-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT104-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT104-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT7-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT7-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT159-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT159-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT18-NET-ENIM-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT18-NET-ENIM-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT10-NET-ENIM-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT10-NET-ENIM-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT19-NET-ENIM-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT19-NET-ENIM-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_105915/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202602-FR2-NFT33-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202602-FR2-NFT33-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT2_2602 PERIODE=202602 MODE=PROD USER=NFT RADICAL=LOT2              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT2_2606 PERIODE=202606 MODE=PROD USER=NFT RADICAL=LOT2             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT2_2606
+[debug] Parametre d'execution dynamique: PERIODE=202606
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT2
+Execution de campaign:open 202606 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_2606
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202606
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/mesTachesTBV.txt 202606
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/mesTachesTBC.txt 202606
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT2_202606-FR2-NFT1-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT2_202606-FR2-NFT1-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110036/generatedFile
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT2_2606 PERIODE=202606 MODE=PROD USER=NFT RADICAL=LOT2              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT3_2603 PERIODE=202603 MODE=PROD USER=NFT RADICAL=LOT3             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT3_2603
+[debug] Parametre d'execution dynamique: PERIODE=202603
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT3
+Execution de campaign:open 202603 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT3_2603
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202603
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/mesTachesTBV.txt 202603
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/mesTachesTBC.txt 202603
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT3 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT3 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT3_202603-FR2-NFT124-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT3_202603-FR2-NFT124-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT3_202603-FR2-NFT125-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT3_202603-FR2-NFT125-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT3_202603-FR2-NFT3-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT3_202603-FR2-NFT3-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT3_202603-FR2-NFT102-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT3_202603-FR2-NFT102-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT3_202603-FR2-NFT173-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT3_202603-FR2-NFT173-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT3_202603-FR2-NFT175-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT3_202603-FR2-NFT175-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT3_202603-FR2-NFT2-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT3_202603-FR2-NFT2-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT3_202603-FR2-NFT7-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT3_202603-FR2-NFT7-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT3_202603-FR2-NFT15-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT3_202603-FR2-NFT15-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT3_202603-FR2-NFT164-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT3_202603-FR2-NFT164-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT3 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT3 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110120/generatedFile
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT3_2603 PERIODE=202603 MODE=PROD USER=NFT RADICAL=LOT3              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT3_2607 PERIODE=202607 MODE=PROD USER=NFT RADICAL=LOT3             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT3_2607
+[debug] Parametre d'execution dynamique: PERIODE=202607
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT3
+Execution de campaign:open 202607 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT3_2607
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202607
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/mesTachesTBV.txt 202607
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/mesTachesTBC.txt 202607
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT3 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT3 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT3_202607-FR2-NFT1-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT3_202607-FR2-NFT1-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT3 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT3 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110219/generatedFile
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT3_2607 PERIODE=202607 MODE=PROD USER=NFT RADICAL=LOT3              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT4_2604 PERIODE=202604 MODE=PROD USER=NFT RADICAL=LOT4             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT4_2604
+[debug] Parametre d'execution dynamique: PERIODE=202604
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT4
+Execution de campaign:open 202604 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT4_2604
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202604
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/mesTachesTBV.txt 202604
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/mesTachesTBC.txt 202604
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT4 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT4 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT4_202604-FR2-NFT3-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT4_202604-FR2-NFT3-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT4_202604-FR2-NFT102-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT4_202604-FR2-NFT102-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT4_202604-FR2-NFT124-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT4_202604-FR2-NFT124-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT4_202604-FR2-NFT125-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT4_202604-FR2-NFT125-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT4_202604-FR2-NFT164-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT4_202604-FR2-NFT164-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT4_202604-FR2-NFT2-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT4_202604-FR2-NFT2-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT4_202604-FR2-NFT173-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT4_202604-FR2-NFT173-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT4 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT4 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110306/generatedFile
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT4_2604 PERIODE=202604 MODE=PROD USER=NFT RADICAL=LOT4              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT4_2608 PERIODE=202608 MODE=PROD USER=NFT RADICAL=LOT4             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT4_2608
+[debug] Parametre d'execution dynamique: PERIODE=202608
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT4
+Execution de campaign:open 202608 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT4_2608
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202608
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/mesTachesTBV.txt 202608
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/mesTachesTBC.txt 202608
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT4 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT4 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT4_202608-FR2-NFT1-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT4_202608-FR2-NFT1-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT4 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT4 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110356/generatedFile
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT4_2608 PERIODE=202608 MODE=PROD USER=NFT RADICAL=LOT4              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT5_2605 PERIODE=202605 MODE=PROD USER=NFT RADICAL=LOT5             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT5_2605
+[debug] Parametre d'execution dynamique: PERIODE=202605
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT5
+Execution de campaign:open 202605 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT5_2605
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202605
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/mesTachesTBV.txt 202605
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/mesTachesTBC.txt 202605
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT5 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT5 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT5_202605-FR2-NFT124-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT5_202605-FR2-NFT124-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT5_202605-FR2-NFT102-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT5_202605-FR2-NFT102-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT5_202605-FR2-NFT2-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT5_202605-FR2-NFT2-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT5_202605-FR2-NFT164-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT5_202605-FR2-NFT164-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT5 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT5 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110437/generatedFile
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT5_2605 PERIODE=202605 MODE=PROD USER=NFT RADICAL=LOT5              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT5_2609 PERIODE=202609 MODE=PROD USER=NFT RADICAL=LOT5             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT5_2609
+[debug] Parametre d'execution dynamique: PERIODE=202609
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT5
+Execution de campaign:open 202609 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT5_2609
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202609
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/mesTachesTBV.txt 202609
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/mesTachesTBC.txt 202609
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT5 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT5 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT5_202609-FR2-NFT1-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT5_202609-FR2-NFT1-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT5 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT5 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110521/generatedFile
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT5_2609 PERIODE=202609 MODE=PROD USER=NFT RADICAL=LOT5              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT6_2606 PERIODE=202606 MODE=PROD USER=NFT RADICAL=LOT6             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT6_2606
+[debug] Parametre d'execution dynamique: PERIODE=202606
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT6
+Execution de campaign:open 202606 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT6_2606
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202606
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/mesTachesTBV.txt 202606
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/mesTachesTBC.txt 202606
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT6 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT6 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT6_202606-FR2-NFT2-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT6_202606-FR2-NFT2-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT6 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT6 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110601/generatedFile
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT6_2606 PERIODE=202606 MODE=PROD USER=NFT RADICAL=LOT6              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT6_2610 PERIODE=202610 MODE=PROD USER=NFT RADICAL=LOT6             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT6_2610
+[debug] Parametre d'execution dynamique: PERIODE=202610
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT6
+Execution de campaign:open 202610 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT6_2610
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202610
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/mesTachesTBV.txt 202610
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/mesTachesTBC.txt 202610
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT6 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT6 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT6_202610-FR2-NFT1-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT6_202610-FR2-NFT1-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT6 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT6 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110640/generatedFile
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT6_2610 PERIODE=202610 MODE=PROD USER=NFT RADICAL=LOT6              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT7_2611 PERIODE=202611 MODE=PROD USER=NFT RADICAL=LOT7             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT7_2611
+[debug] Parametre d'execution dynamique: PERIODE=202611
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT7
+Execution de campaign:open 202611 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT7_2611
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202611
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/mesTachesTBV.txt 202611
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/mesTachesTBC.txt 202611
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT7 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT7 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT7_202611-FR2-NFT1-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT7_202611-FR2-NFT1-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT7 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT7 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110724/generatedFile
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT7_2611 PERIODE=202611 MODE=PROD USER=NFT RADICAL=LOT7              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT8_2612 PERIODE=202612 MODE=PROD USER=NFT RADICAL=LOT8             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=NR_BANDES_P26V01_12.0_PUBLIC
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT8_2612
+[debug] Parametre d'execution dynamique: PERIODE=202612
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=NFT
+[debug] Parametre d'execution dynamique: RADICAL=LOT8
+Execution de campaign:open 202612 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT8_2612
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202612
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/mesTachesTBV.txt 202612
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/mesTachesTBC.txt 202612
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT8 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT8 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC/LOT8_202612-FR2-NFT1-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa55_mens/edsn/edsn-home/flows/LOT8_202612-FR2-NFT1-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC
+[debug] command=dsn:gen-file LOT8 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT8 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/NR_BANDES_P26V01_12.0_PUBLIC et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260319_110809/generatedFile
+Code retour de l'etape : 0
+STEP  68 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=NR_BANDES_P26V01_12.0_PUBLIC LIST_ETAB=LOT8_2612 PERIODE=202612 MODE=PROD USER=NFT RADICAL=LOT8              : SUCCESS
+  
+Code retour final: 0
+FIN DU JOB : 2026-03-19_11-08-49
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 68"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+Press any key to continue . . . 
+Finished: SUCCESS

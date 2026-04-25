@@ -1,0 +1,76 @@
+Started by upstream project "PROD_Pipeline_TestBook" build number 922
+originally caused by:
+ Started by user HASNAOUI Mohamed (mhasnaoui)
+Running as SYSTEM
+Building in workspace D:\Jenkins\workspace\PROD_Serializer
+The recommended git tool is: NONE
+using credential cc3ffaa8-96cb-4d9d-abcc-84406bb605d4
+ > git.exe rev-parse --resolve-git-dir D:\Jenkins\workspace\PROD_Serializer\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url http://hra-bitbucket.ptx.fr.sopra/scm/declfr_indus/sdlc15.git # timeout=10
+Fetching upstream changes from http://hra-bitbucket.ptx.fr.sopra/scm/declfr_indus/sdlc15.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.32.0.windows.1'
+using GIT_ASKPASS to set credentials 
+ > git.exe fetch --tags --force --progress -- http://hra-bitbucket.ptx.fr.sopra/scm/declfr_indus/sdlc15.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+Checking out Revision 02e742d12a76e3704615615bf9aff8073979b199 (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 02e742d12a76e3704615615bf9aff8073979b199 # timeout=10
+Commit message: "Revert "DEV::DSNINDUS::gestion code erreur pour mass_installer_app""
+ > git.exe rev-list --no-walk 02e742d12a76e3704615615bf9aff8073979b199 # timeout=10
+[PROD_Serializer] $ cmd /c call C:\WINDOWS\TEMP\jenkins6562343596549755255.bat
+
+D:\Jenkins\workspace\PROD_Serializer>Prod\dispatcher.bat Prod serializer HR qa22 21 false true 
+A subdirectory or file D:\Jenkins\workspace\PROD_Serializer\Prod\tmp already exists.
+A subdirectory or file D:\Jenkins\workspace\PROD_Serializer\Prod\logs already exists.
+ECHO is off.
+ENTREE 
+Execution du script de serialisation avec les parametres suivants:
+ENTREE 
+Produit = HR
+ENTREE 
+Env = qa22
+ENTREE 
+ID_cas_test = 21
+"PRODUCT : HR"
+"SCENARIO : 21"
+"SEQUENCE : 1"
+"PATH : C:\WTF\TOOLS_TNR_Declaratif_France\jisql\" 
+"SCRIPT : single_remote_delete.bat" 
+"TECHNO : bat"
+"SERVER : SDLC15"
+"PARAMETRES : FPT EMP055" 
+ENTREE 
+EXECUTION DE LA COMMANDE : C:\WTF\TOOLS_TNR_Declaratif_France\jisql\ single_remote_delete.bat sur SDLC15
+"EXECUTION DE LA COMMANDE : "C:\WTF\TOOLS_TNR_Declaratif_France\jisql\single_remote_delete.bat " Cible :  "qa22  FPT EMP055
+"DBQUERY1 : ""delete from zy00 where soccle = 'FPT' and matcle like 'EMP055%';"
+"DBQUERY2 : ""delete from AB10 where IDCP00 = 'FPT' and matcle like 'EMP055%';"
+"DBQUERY3 : ""delete from ZX00 where soccle = 'FPT' and matric like 'EMP055%';"
+"DBQUERY4 : ""delete from ZZ00 where etabli = '';"
+"DBQUERY5 : ""delete from AB11 where IDCP00 = 'FPT' and matcle like 'EMP055%';"
+1 rows affected.
+0 rows affected.
+0 rows affected.
+0 rows affected.
+"PRODUCT : HR"
+"SCENARIO : 21"
+"SEQUENCE : 1"
+"PATH : C:\WTF\Start\DSN_Testbook_Public\" 
+"SCRIPT : Start_Testbook_Execution_WT_MensuelleQA22.bat" 
+"TECHNO : WT"
+"SERVER : SDLC15"
+"PARAMETRES : $Environnement" 
+ENTREE 
+EXECUTION DE LA COMMANDE : C:\WTF\Start\DSN_Testbook_Public\ Start_Testbook_Execution_WT_MensuelleQA22.bat sur SDLC15
+"EXECUTION DE LA COMMANDE : "C:\WTF\Start\DSN_Testbook_Public\Start_Testbook_Execution_WT_MensuelleQA22.bat " Cible :  "qa22  $Environnement
+[TESTBOOK] Execution des etapes...
+STEP Start_08_DSNTB_HireEmployee.bat PASSED
+STEP Start_08_1_DSNTB_Validation.bat PASSED
+STEP Start_09_DSNTB_PayK3W_M1.bat FAILED: .1 .
+Press any key to continue . . . 
+ENTREE 
+exit with errors
+Press any key to continue . . . 
+Build step 'Execute Windows batch command' marked build as failure
+Finished: FAILURE

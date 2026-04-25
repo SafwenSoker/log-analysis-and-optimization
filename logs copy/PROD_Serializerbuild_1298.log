@@ -1,0 +1,1375 @@
+Started by upstream project "PROD_TNR_MENSUELLE" build number 305
+originally caused by:
+ Started by user BILLO Franck (fbillo)
+Running as SYSTEM
+Building in workspace D:\Jenkins\workspace\PROD_Serializer
+The recommended git tool is: NONE
+using credential cc3ffaa8-96cb-4d9d-abcc-84406bb605d4
+ > git.exe rev-parse --resolve-git-dir D:\Jenkins\workspace\PROD_Serializer\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url http://hra-bitbucket.ptx.fr.sopra/scm/declfr_indus/sdlc15.git # timeout=10
+Fetching upstream changes from http://hra-bitbucket.ptx.fr.sopra/scm/declfr_indus/sdlc15.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.32.0.windows.1'
+using GIT_ASKPASS to set credentials 
+ > git.exe fetch --tags --force --progress -- http://hra-bitbucket.ptx.fr.sopra/scm/declfr_indus/sdlc15.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+Checking out Revision 02e742d12a76e3704615615bf9aff8073979b199 (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 02e742d12a76e3704615615bf9aff8073979b199 # timeout=10
+Commit message: "Revert "DEV::DSNINDUS::gestion code erreur pour mass_installer_app""
+ > git.exe rev-list --no-walk 02e742d12a76e3704615615bf9aff8073979b199 # timeout=10
+[PROD_Serializer] $ cmd /c call C:\WINDOWS\TEMP\jenkins12899454581466704569.bat
+
+D:\Jenkins\workspace\PROD_Serializer>Prod\dispatcher.bat Prod serializer HR qa54_mens 67 false true 
+A subdirectory or file D:\Jenkins\workspace\PROD_Serializer\Prod\tmp already exists.
+A subdirectory or file D:\Jenkins\workspace\PROD_Serializer\Prod\logs already exists.
+ECHO is off.
+ENTREE 
+Execution du script de serialisation avec les parametres suivants:
+ENTREE 
+Produit = HR
+ENTREE 
+Env = qa54_mens
+ENTREE 
+ID_cas_test = 67
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+ENTREE 
+EXECUTION DE LA COMMANDE : sequence_tester HR edsn $Environnement comparaison_mensuelle sur DSN01 qa54_mens
+DEBUG je rentre dans ExecuteScriptOnDSN01
+ENTREE 
+ Commande : serializer HR qa54_mens 67 1 false true 
+ENTREE 
+ EN COURS d'EXECUTION SUR dlnxhrpldsn01.marc.fr.ssg...PATIENTEZ SVP
+-- Keyboard-interactive authentication prompts from server: ------------------
+-- End of keyboard-interactive prompts from server ---------------------------
+ENTREE 
+Command on dlnxhrpldsn01.marc.fr.ssg DSN01 : serializer HR qa54_mens 67 1 false true; directory "/hrapleiadedsn/users/hrapldsn/_ProdAutoTNR_/Script" ; return code: 0
+-- Keyboard-interactive authentication prompts from server: ------------------
+-- End of keyboard-interactive prompts from server ---------------------------
+Execution de Serializer
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2601 PERIODE=202601 MODE=PROD USER=TEU RADICAL=LOT1             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT1_2601
+[debug] Parametre d'execution dynamique: PERIODE=202601
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT1
+Execution de campaign:open 202601 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_2601
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202601
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/mesTachesTBV.txt 202601
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/mesTachesTBC.txt 202601
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU11-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU11-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU33-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU33-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU12-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU12-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU3-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU3-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU13-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU13-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU17-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU17-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU40-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU40-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU31-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU31-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU39-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU39-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU15-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU15-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU61-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU61-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU82-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU82-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU69-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU69-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU41-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU41-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU79-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU79-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU67-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU67-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU63-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU63-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU78-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU78-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU68-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU68-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU53-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU53-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU150-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU150-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU85-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU85-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU84-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU84-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU83-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU83-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU86-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU86-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU102-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU102-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU101-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU101-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU124-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU124-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU150-NET-AUDIENS-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU150-NET-AUDIENS-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU153-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU153-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU73-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU73-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU155-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU155-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU174-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU174-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU171-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU171-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU177-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU177-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU176-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU176-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU179-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU179-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU175-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU175-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU66-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU66-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU73-NET-ENIM-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU73-NET-ENIM-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU72-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU72-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU75-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU75-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU66-NET-ENIM-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU66-NET-ENIM-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU72-NET-ENIM-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU72-NET-ENIM-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202601-FRO-TEU75-NET-ENIM-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202601-FRO-TEU75-NET-ENIM-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172447/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2601 PERIODE=202601 MODE=PROD USER=TEU RADICAL=LOT1              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2602 PERIODE=202602 MODE=PROD USER=TEU RADICAL=LOT1             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT1_2602
+[debug] Parametre d'execution dynamique: PERIODE=202602
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT1
+Execution de campaign:open 202602 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_2602
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202602
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/mesTachesTBV.txt 202602
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/mesTachesTBC.txt 202602
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202602-FRO-TEU152-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202602-FRO-TEU152-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202602-FRO-TEU2-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202602-FRO-TEU2-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172717/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2602 PERIODE=202602 MODE=PROD USER=TEU RADICAL=LOT1              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2603 PERIODE=202603 MODE=PROD USER=TEU RADICAL=LOT1             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT1_2603
+[debug] Parametre d'execution dynamique: PERIODE=202603
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT1
+Execution de campaign:open 202603 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_2603
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202603
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/mesTachesTBV.txt 202603
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/mesTachesTBC.txt 202603
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202603-FRO-TEU81-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202603-FRO-TEU81-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202603-FRO-TEU80-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202603-FRO-TEU80-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172802/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2603 PERIODE=202603 MODE=PROD USER=TEU RADICAL=LOT1              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2604 PERIODE=202604 MODE=PROD USER=TEU RADICAL=LOT1             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT1_2604
+[debug] Parametre d'execution dynamique: PERIODE=202604
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT1
+Execution de campaign:open 202604 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_2604
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202604
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/mesTachesTBV.txt 202604
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/mesTachesTBC.txt 202604
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202604-FRO-TEU5-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202604-FRO-TEU5-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172848/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2604 PERIODE=202604 MODE=PROD USER=TEU RADICAL=LOT1              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2605 PERIODE=202605 MODE=PROD USER=TEU RADICAL=LOT1             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT1_2605
+[debug] Parametre d'execution dynamique: PERIODE=202605
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT1
+Execution de campaign:open 202605 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_2605
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202605
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/mesTachesTBV.txt 202605
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/mesTachesTBC.txt 202605
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202605-FRO-TEU20-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202605-FRO-TEU20-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_172932/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2605 PERIODE=202605 MODE=PROD USER=TEU RADICAL=LOT1              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2606 PERIODE=202606 MODE=PROD USER=TEU RADICAL=LOT1             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT1_2606
+[debug] Parametre d'execution dynamique: PERIODE=202606
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT1
+Execution de campaign:open 202606 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_2606
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202606
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/mesTachesTBV.txt 202606
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/mesTachesTBC.txt 202606
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202606-FRO-TEU21-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202606-FRO-TEU21-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202606-FRO-TEU24-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202606-FRO-TEU24-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202606-FRO-TEU14-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202606-FRO-TEU14-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202606-FRO-TEU36-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202606-FRO-TEU36-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173011/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2606 PERIODE=202606 MODE=PROD USER=TEU RADICAL=LOT1              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2607 PERIODE=202607 MODE=PROD USER=TEU RADICAL=LOT1             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT1_2607
+[debug] Parametre d'execution dynamique: PERIODE=202607
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT1
+Execution de campaign:open 202607 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_2607
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202607
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/mesTachesTBV.txt 202607
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/mesTachesTBC.txt 202607
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202607-FRO-TEU16-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202607-FRO-TEU16-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173100/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2607 PERIODE=202607 MODE=PROD USER=TEU RADICAL=LOT1              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2610 PERIODE=202610 MODE=PROD USER=TEU RADICAL=LOT1             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT1_2610
+[debug] Parametre d'execution dynamique: PERIODE=202610
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT1
+Execution de campaign:open 202610 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_2610
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202610
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/mesTachesTBV.txt 202610
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/mesTachesTBC.txt 202610
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202610-FRO-TEU52-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202610-FRO-TEU52-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173143/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2610 PERIODE=202610 MODE=PROD USER=TEU RADICAL=LOT1              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2611 PERIODE=202611 MODE=PROD USER=TEU RADICAL=LOT1             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT1_2611
+[debug] Parametre d'execution dynamique: PERIODE=202611
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT1
+Execution de campaign:open 202611 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_2611
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202611
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/mesTachesTBV.txt 202611
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/mesTachesTBC.txt 202611
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT1_202611-FRO-TEU19-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT1_202611-FRO-TEU19-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT1 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173227/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT1_2611 PERIODE=202611 MODE=PROD USER=TEU RADICAL=LOT1              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT2_2602 PERIODE=202602 MODE=PROD USER=TEU RADICAL=LOT2             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT2_2602
+[debug] Parametre d'execution dynamique: PERIODE=202602
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT2
+Execution de campaign:open 202602 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_2602
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202602
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/mesTachesTBV.txt 202602
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/mesTachesTBC.txt 202602
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU3-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU3-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU12-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU12-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU39-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU39-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU84-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU84-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU11-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU11-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU69-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU69-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU31-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU31-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU82-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU82-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU15-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU15-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU73-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU73-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU66-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU66-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU72-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU72-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU102-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU102-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU124-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU124-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU175-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU175-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU176-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU176-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU73-NET-ENIM-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU73-NET-ENIM-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU72-NET-ENIM-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU72-NET-ENIM-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU66-NET-ENIM-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU66-NET-ENIM-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU75-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU75-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU75-NET-ENIM-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU75-NET-ENIM-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173305/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202602-FRO-TEU33-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202602-FRO-TEU33-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT2_2602 PERIODE=202602 MODE=PROD USER=TEU RADICAL=LOT2              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT2_2603 PERIODE=202603 MODE=PROD USER=TEU RADICAL=LOT2             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT2_2603
+[debug] Parametre d'execution dynamique: PERIODE=202603
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT2
+Execution de campaign:open 202603 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_2603
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202603
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/mesTachesTBV.txt 202603
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/mesTachesTBC.txt 202603
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/generatedFile
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173434/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT2_2603 PERIODE=202603 MODE=PROD USER=TEU RADICAL=LOT2              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT2_2605 PERIODE=202605 MODE=PROD USER=TEU RADICAL=LOT2             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT2_2605
+[debug] Parametre d'execution dynamique: PERIODE=202605
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT2
+Execution de campaign:open 202605 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_2605
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202605
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/mesTachesTBV.txt 202605
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/mesTachesTBC.txt 202605
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202605-FRO-TEU5-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202605-FRO-TEU5-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173510/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT2_2605 PERIODE=202605 MODE=PROD USER=TEU RADICAL=LOT2              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT2_2606 PERIODE=202606 MODE=PROD USER=TEU RADICAL=LOT2             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT2_2606
+[debug] Parametre d'execution dynamique: PERIODE=202606
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT2
+Execution de campaign:open 202606 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_2606
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202606
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/mesTachesTBV.txt 202606
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/mesTachesTBC.txt 202606
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202606-FRO-TEU20-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202606-FRO-TEU20-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173549/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT2_2606 PERIODE=202606 MODE=PROD USER=TEU RADICAL=LOT2              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT2_2607 PERIODE=202607 MODE=PROD USER=TEU RADICAL=LOT2             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT2_2607
+[debug] Parametre d'execution dynamique: PERIODE=202607
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT2
+Execution de campaign:open 202607 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_2607
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202607
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/mesTachesTBV.txt 202607
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/mesTachesTBC.txt 202607
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202607-FRO-TEU21-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202607-FRO-TEU21-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173632/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT2_2607 PERIODE=202607 MODE=PROD USER=TEU RADICAL=LOT2              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT2_2611 PERIODE=202611 MODE=PROD USER=TEU RADICAL=LOT2             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT2_2611
+[debug] Parametre d'execution dynamique: PERIODE=202611
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT2
+Execution de campaign:open 202611 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_2611
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202611
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/mesTachesTBV.txt 202611
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/mesTachesTBC.txt 202611
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT2_202611-FRO-TEU54-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT2_202611-FRO-TEU54-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT2 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173710/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT2_2611 PERIODE=202611 MODE=PROD USER=TEU RADICAL=LOT2              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT3_2603 PERIODE=202603 MODE=PROD USER=TEU RADICAL=LOT3             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT3_2603
+[debug] Parametre d'execution dynamique: PERIODE=202603
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT3
+Execution de campaign:open 202603 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT3_2603
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202603
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/mesTachesTBV.txt 202603
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/mesTachesTBC.txt 202603
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT3 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT3 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT3_202603-FRO-TEU84-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT3_202603-FRO-TEU84-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT3_202603-FRO-TEU102-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT3_202603-FRO-TEU102-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT3_202603-FRO-TEU124-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT3_202603-FRO-TEU124-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT3_202603-FRO-TEU175-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT3_202603-FRO-TEU175-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT3_202603-FRO-TEU82-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT3_202603-FRO-TEU82-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT3 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT3 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173749/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT3_2603 PERIODE=202603 MODE=PROD USER=TEU RADICAL=LOT3              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT4_2604 PERIODE=202604 MODE=PROD USER=TEU RADICAL=LOT4             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT4_2604
+[debug] Parametre d'execution dynamique: PERIODE=202604
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT4
+Execution de campaign:open 202604 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT4_2604
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202604
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/mesTachesTBV.txt 202604
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/mesTachesTBC.txt 202604
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT4 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT4 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT4_202604-FRO-TEU84-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT4_202604-FRO-TEU84-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT4_202604-FRO-TEU124-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT4_202604-FRO-TEU124-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT4_202604-FRO-TEU102-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT4_202604-FRO-TEU102-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT4 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT4 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173839/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT4_2604 PERIODE=202604 MODE=PROD USER=TEU RADICAL=LOT4              : SUCCESS
+  
+ordre exécuté  : sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT5_2605 PERIODE=202605 MODE=PROD USER=TEU RADICAL=LOT5             
+Verification de la liste des addons installes...
+EXECUTION DE LA COMMANDE : addon:list : OK
+Verification de l'installation...
+Entree AppTestServices ...
+AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+bundle:list 
+EXECUTION DE LA COMMANDE : bundle:list : OK
+grepresult : 
+Addlog : Entree AppTestServices ...
+Addlog : AppRoot : /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-12.1.0-RC3
+Addlog : bundle:list 
+Addlog : EXECUTION DE LA COMMANDE : bundle:list : OK
+Addlog : grepresult : 
+[PASS] Tous les services sont actifs...
+[debug] Parametre d'execution dynamique: comparaison_mensuelle=
+[debug] Parametre d'execution dynamique: true=
+[debug] Parametre d'execution dynamique: BASELINE=12.0_NR_BANDES_P26V01_PRIVE
+[debug] Parametre d'execution dynamique: LIST_ETAB=LOT5_2605
+[debug] Parametre d'execution dynamique: PERIODE=202605
+[debug] Parametre d'execution dynamique: MODE=PROD
+[debug] Parametre d'execution dynamique: USER=TEU
+[debug] Parametre d'execution dynamique: RADICAL=LOT5
+Execution de campaign:open 202605 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT5_2605
+[PASS] La commande fonctionne correctement...
+Execution de dsn:wait-extraction -f 202605
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBV -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/mesTachesTBV.txt 202605
+[PASS] La commande fonctionne correctement...
+Execution de dsn:list-tasks -t TBC -x -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/mesTachesTBC.txt 202605
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/mesTachesTBV.txt
+Execution de dsn:validate -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/mesDeclarationsValides.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/mesTachesTBV.txt
+[PASS] La commande fonctionne correctement...
+*** getFluxId : recuperation identifiant des flux 
+Commande executee dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/mesTachesTBC.txt
+Execution de dsn:validate-with-errors -w -1 -o /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/mesDeclarationsCorrigees.txt @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/mesTachesTBC.txt
+[PASS] La commande fonctionne correctement...
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT5 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/mesDeclarationsValides.txt
+Execution de dsn:gen-file LOT5 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/mesDeclarationsValides.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/generatedFile
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT5_202605-FRO-TEU124-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT5_202605-FRO-TEU124-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+Comparaison du flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE/LOT5_202605-FRO-TEU102-NET-STD-PROD.dsn et /hrapleiadedsn/users/hrapldsn/_ProdHraccess/qa54_mens/edsn/edsn-home/flows/LOT5_202605-FRO-TEU102-NET-STD-PROD.dsn
+[PASS] Les deux flux sont identiques.
+[debug] isMensGenFile=true
+[debug] directoryToCompareWith=/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE
+[debug] command=dsn:gen-file LOT5 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/mesDeclarationsCorrigees.txt
+Execution de dsn:gen-file LOT5 @/hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/mesDeclarationsCorrigees.txt
+[PASS] La commande fonctionne correctement...
+Comparaison des flux de la baseline /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/baselines/12.0_NR_BANDES_P26V01_PRIVE et /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/tmp/comparaison_mensuelle/tmp_20260323_173927/generatedFile
+Code retour de l'etape : 0
+STEP  67 1 0 
+COMMANDE sh /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script/sequence_tester HR edsn $Environnement comparaison_mensuelle true BASELINE=12.0_NR_BANDES_P26V01_PRIVE LIST_ETAB=LOT5_2605 PERIODE=202605 MODE=PROD USER=TEU RADICAL=LOT5              : SUCCESS
+  
+Code retour final: 0
+FIN DU JOB : 2026-03-23_17-40-07
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+"PRODUCT : HR"
+"SCENARIO : 67"
+"SEQUENCE : 1"
+"PATH : /hrapleiadedsn/users/hrapldsn/_ProdAutoTestNonRegCmdSeqDSN_/Script" 
+"SCRIPT : sequence_tester" 
+"TECHNO : shell"
+"SERVER : DSN01"
+"PARAMETRES : HR edsn $Environnement comparaison_mensuelle" 
+Press any key to continue . . . 
+Finished: SUCCESS

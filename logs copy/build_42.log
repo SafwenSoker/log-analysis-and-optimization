@@ -1,0 +1,33 @@
+Started by user HASNAOUI Mohamed (mhasnaoui)
+Running as SYSTEM
+Building in workspace D:\Jenkins\workspace\DEV_HRA_ATIJ_TEST_SELENIUM
+The recommended git tool is: NONE
+using credential cc3ffaa8-96cb-4d9d-abcc-84406bb605d4
+ > git.exe rev-parse --resolve-git-dir D:\Jenkins\workspace\DEV_HRA_ATIJ_TEST_SELENIUM\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url http://hra-bitbucket.ptx.fr.sopra/scm/cstt/com.soprahr.tnra.rmit.rd.edsn.init.hra.git # timeout=10
+Fetching upstream changes from http://hra-bitbucket.ptx.fr.sopra/scm/cstt/com.soprahr.tnra.rmit.rd.edsn.init.hra.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.32.0.windows.1'
+using GIT_ASKPASS to set credentials 
+ > git.exe fetch --tags --force --progress -- http://hra-bitbucket.ptx.fr.sopra/scm/cstt/com.soprahr.tnra.rmit.rd.edsn.init.hra.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/develop^{commit}" # timeout=10
+Checking out Revision cf41caf91942b14d1a09508fc64924ad22702a6b (refs/remotes/origin/develop)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f cf41caf91942b14d1a09508fc64924ad22702a6b # timeout=10
+Commit message: "FIX::DSNINDUS-1985::FIX ajout des matricules pour MutationEtablissementEnMEtsortieEnM"
+ > git.exe rev-list --no-walk cf41caf91942b14d1a09508fc64924ad22702a6b # timeout=10
+Parsing POMs
+Established TCP socket on 64307
+[DEV_HRA_ATIJ_TEST_SELENIUM] $ "C:\Program Files\Java\jdk-17.0.2/bin/java" -Xmx512m -XX:MaxPermSize=128m -cp D:\Jenkins\plugins\maven-plugin\WEB-INF\lib\maven35-agent-1.14.jar;D:\Apache\apache-maven-3.9.0\boot\plexus-classworlds-2.6.0.jar;D:\Apache\apache-maven-3.9.0/conf/logging jenkins.maven3.agent.Maven35Main D:\Apache\apache-maven-3.9.0 "C:\Program Files (x86)\Jenkins\war\WEB-INF\lib\remoting-3206.vb_15dcf73f6a_9.jar" D:\Jenkins\plugins\maven-plugin\WEB-INF\lib\maven35-interceptor-1.14.jar D:\Jenkins\plugins\maven-plugin\WEB-INF\lib\maven3-interceptor-commons-1.14.jar 64307
+Unrecognized VM option 'MaxPermSize=128m'
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+ERROR: Failed to launch Maven. Exit code = 1
+[CucumberReport] Using Cucumber Reports version 5.8.1
+[CucumberReport] JSON report directory is ""
+[CucumberReport] Copied 19 properties files from workspace "D:\Jenkins\workspace\DEV_HRA_ATIJ_TEST_SELENIUM" to reports directory "D:\Jenkins\jobs\DEV_HRA_ATIJ_TEST_SELENIUM\builds\42\cucumber-html-reports\.cache"
+[CucumberReport] Copied 1 files from workspace "D:\Jenkins\workspace\DEV_HRA_ATIJ_TEST_SELENIUM" to reports directory "D:\Jenkins\jobs\DEV_HRA_ATIJ_TEST_SELENIUM\builds\42\cucumber-html-reports\.cache"
+[CucumberReport] Processing 1 json files:
+[CucumberReport] D:\Jenkins\jobs\DEV_HRA_ATIJ_TEST_SELENIUM\builds\42\cucumber-html-reports\.cache\target\cucumber.json
+Finished: FAILURE

@@ -1,0 +1,48 @@
+Started by upstream project "PROD_HRA_TNR_ATIJ_develop" build number 34
+originally caused by:
+ Started by timer
+Running as SYSTEM
+Building in workspace D:\Jenkins\workspace\DEV_HRA_ATIJ_TEST_SELENIUM
+The recommended git tool is: NONE
+using credential cc3ffaa8-96cb-4d9d-abcc-84406bb605d4
+ > git.exe rev-parse --resolve-git-dir D:\Jenkins\workspace\DEV_HRA_ATIJ_TEST_SELENIUM\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url http://hra-bitbucket.ptx.fr.sopra/scm/cstt/com.soprahr.tnra.rmit.rd.edsn.init.hra.git # timeout=10
+Fetching upstream changes from http://hra-bitbucket.ptx.fr.sopra/scm/cstt/com.soprahr.tnra.rmit.rd.edsn.init.hra.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.32.0.windows.1'
+using GIT_ASKPASS to set credentials 
+ > git.exe fetch --tags --force --progress -- http://hra-bitbucket.ptx.fr.sopra/scm/cstt/com.soprahr.tnra.rmit.rd.edsn.init.hra.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/develop^{commit}" # timeout=10
+Checking out Revision cf41caf91942b14d1a09508fc64924ad22702a6b (refs/remotes/origin/develop)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f cf41caf91942b14d1a09508fc64924ad22702a6b # timeout=10
+Commit message: "FIX::DSNINDUS-1985::FIX ajout des matricules pour MutationEtablissementEnMEtsortieEnM"
+ > git.exe rev-list --no-walk cf41caf91942b14d1a09508fc64924ad22702a6b # timeout=10
+Parsing POMs
+Failed to transfer Could not find artifact com.soprahr.tnra.rmit.pom:com.soprahr.tnra.rmit.pom:pom:1.0.0 in central (https://repo.maven.apache.org/maven2)
+ERROR: Failed to parse POMs
+org.apache.maven.project.ProjectBuildingException: Some problems were encountered while processing the POMs:
+[FATAL] Non-resolvable parent POM for com.soprahr.tnra.rmit.rd.edsn.init.hra:com.soprahr.tnra.rmit.rd.edsn.init.hra:0.0.1-FCTU-SNAPSHOT: Could not find artifact com.soprahr.tnra.rmit.pom:com.soprahr.tnra.rmit.pom:pom:1.0.0 in central (https://repo.maven.apache.org/maven2) and 'parent.relativePath' points at wrong local POM @ line 8, column 10
+
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:397)
+	at hudson.maven.MavenEmbedder.buildProjects(MavenEmbedder.java:370)
+	at hudson.maven.MavenEmbedder.readProjects(MavenEmbedder.java:340)
+	at hudson.maven.MavenModuleSetBuild$PomParser.invoke(MavenModuleSetBuild.java:1330)
+	at hudson.maven.MavenModuleSetBuild$PomParser.invoke(MavenModuleSetBuild.java:1124)
+	at hudson.FilePath.act(FilePath.java:1232)
+	at hudson.FilePath.act(FilePath.java:1215)
+	at hudson.maven.MavenModuleSetBuild$MavenModuleSetBuildExecution.parsePoms(MavenModuleSetBuild.java:985)
+	at hudson.maven.MavenModuleSetBuild$MavenModuleSetBuildExecution.doRun(MavenModuleSetBuild.java:689)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.run(AbstractBuild.java:526)
+	at hudson.model.Run.execute(Run.java:1894)
+	at hudson.maven.MavenModuleSetBuild.run(MavenModuleSetBuild.java:543)
+	at hudson.model.ResourceController.execute(ResourceController.java:101)
+	at hudson.model.Executor.run(Executor.java:442)
+[CucumberReport] Using Cucumber Reports version 5.8.1
+[CucumberReport] JSON report directory is ""
+[CucumberReport] Copied 19 properties files from workspace "D:\Jenkins\workspace\DEV_HRA_ATIJ_TEST_SELENIUM" to reports directory "D:\Jenkins\jobs\DEV_HRA_ATIJ_TEST_SELENIUM\builds\38\cucumber-html-reports\.cache"
+[CucumberReport] Copied 1 files from workspace "D:\Jenkins\workspace\DEV_HRA_ATIJ_TEST_SELENIUM" to reports directory "D:\Jenkins\jobs\DEV_HRA_ATIJ_TEST_SELENIUM\builds\38\cucumber-html-reports\.cache"
+[CucumberReport] Processing 1 json files:
+[CucumberReport] D:\Jenkins\jobs\DEV_HRA_ATIJ_TEST_SELENIUM\builds\38\cucumber-html-reports\.cache\target\cucumber.json
+Finished: FAILURE
