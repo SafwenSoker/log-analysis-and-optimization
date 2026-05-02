@@ -190,39 +190,74 @@ async function analyseOne(buildId, btn) {
   btn.innerHTML = '<i class="bi bi-cpu"></i>';
 }
 
-// Train button
+// Train button — background task + poll for completion
 document.getElementById('trainBtn').addEventListener('click', async () => {
   const btn = document.getElementById('trainBtn');
+  const bannerText = document.getElementById('modelBannerText');
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span>Training…';
-  document.getElementById('modelBannerText').textContent = 'Training in progress — this may take a minute…';
+
+  // Get current trained_at before starting so we can detect when it changes
+  let prevTrainedAt = null;
   try {
-    await fetch('/api/model/train/sync', { method: 'POST' });
-    await loadModelStatus();
-    await loadModelChart();
-  } catch (e) {
-    alert('Training failed: ' + e);
-  } finally {
-    btn.disabled = false;
-    btn.innerHTML = '<i class="bi bi-play-fill me-1"></i>Train Model';
-  }
+    const s = await fetch('/api/model/status').then(r => r.json());
+    prevTrainedAt = s.trained_at || null;
+  } catch (_) {}
+
+  await fetch('/api/model/train', { method: 'POST' });
+  bannerText.textContent = 'Training in progress — this takes ~8 minutes, please wait…';
+
+  // Poll every 10s until trained_at changes
+  const poll = setInterval(async () => {
+    try {
+      const s = await fetch('/api/model/status').then(r => r.json());
+      if (s.trained && s.trained_at !== prevTrainedAt) {
+        clearInterval(poll);
+        btn.disabled = false;
+        btn.innerHTML = '<i class="bi bi-play-fill me-1"></i>Train Model';
+        await loadModelStatus();
+        await loadModelChart();
+      }
+    } catch (_) {}
+  }, 10000);
 });
 
-// Analyse all unanalysed builds
+// Analyse all unanalysed builds (paginated, no cap)
 document.getElementById('analyseAllBtn').addEventListener('click', async () => {
   const btn = document.getElementById('analyseAllBtn');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span>Queuing…';
-  const data = await fetch('/api/builds?limit=500').then(r => r.json());
-  const unanalysed = data.builds.filter(b => !b.analysis_done);
-  for (const b of unanalysed) {
-    await fetch(`/api/analysis/${b.id}`, { method: 'POST' });
+
+  // Collect all unanalysed build IDs across all pages
+  const unanalysed = [];
+  let offset = 0;
+  const pageSize = 200;
+  while (true) {
+    const data = await fetch(`/api/builds?limit=${pageSize}&offset=${offset}`).then(r => r.json());
+    data.builds.filter(b => !b.analysis_done).forEach(b => unanalysed.push(b.id));
+    if (offset + pageSize >= data.total) break;
+    offset += pageSize;
   }
+
+  if (!unanalysed.length) {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="bi bi-cpu me-1"></i>Analyse All';
+    return;
+  }
+
+  // Queue all in parallel batches of 10
+  btn.innerHTML = `<span class="spinner-border spinner-border-sm me-1"></span>Queuing ${unanalysed.length}…`;
+  const batchSize = 10;
+  for (let i = 0; i < unanalysed.length; i += batchSize) {
+    await Promise.all(unanalysed.slice(i, i + batchSize).map(id =>
+      fetch(`/api/analysis/${id}`, { method: 'POST' })
+    ));
+  }
+
   setTimeout(() => {
     btn.disabled = false;
     btn.innerHTML = '<i class="bi bi-cpu me-1"></i>Analyse All';
     loadBuilds();
-  }, 2000);
+  }, 1500);
 });
 
 // Filters

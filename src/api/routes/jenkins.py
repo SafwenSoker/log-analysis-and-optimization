@@ -98,11 +98,19 @@ async def jenkins_webhook(payload: WebhookPayload, background_tasks: BackgroundT
     return {"status": "received", "detail": "No log_url provided — skipping ingestion"}
 
 
+def _recompute_flaky():
+    from src.model.flaky_detector import get_flaky_summary
+    from src.storage import database as db
+    summary = get_flaky_summary()
+    db.save_flaky_results(summary["flaky_scenarios"] + summary["failing_scenarios"])
+
+
 @router.post("/ingest")
 def ingest_all(background_tasks: BackgroundTasks, analyse: bool = False):
     """
-    Ingest every *.log.txt file from data/logs/ into the database.
-    Pass ?analyse=true to also trigger Claude analysis for each build.
+    Ingest every *.log file from data/logs/ into the database.
+    Pass ?analyse=true to also trigger ML analysis for each build.
+    Always recomputes flaky tests in the background after ingestion.
     """
     LOGS_DIR.mkdir(parents=True, exist_ok=True)
     seen: set = set()
@@ -122,6 +130,8 @@ def ingest_all(background_tasks: BackgroundTasks, analyse: bool = False):
                 background_tasks.add_task(_run_analysis, build_id, path)
         else:
             skipped += 1
+
+    background_tasks.add_task(_recompute_flaky)
 
     return {
         "ingested": ingested,
